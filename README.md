@@ -7,20 +7,13 @@ We are interested in the field of finance/economics because we are business, eco
 
 **Examples of data driven projects related to finance/economics**
 - [Example 1:](https://www.kaggle.com/skirmer/fun-with-real-estate-data) This project looks at different factors which influence the market price of a house.
-- [Example 2:](https://www.kaggle.com/rohan8594/finance-data-project)This project analyses data related to stock prices starting from the 2008 financial crisis up to 2016.
-- EXAMPLE 3 (link)
-
-**Description of Project**
-
-DESCRIPTION OF PROJECT
+- [Example 2:](https://www.kaggle.com/rohan8594/finance-data-project) This project analyses data related to stock prices starting from the 2008 financial crisis up to 2016.
+- [Example 3:](https://github.com/quinamatics/Financial-Data-Analytics/blob/master/Better%20Buy.ipynb) This project takes in data about the financial situations of two different companies and performs analysis to determine which one is better off.
 
 **Questions**
-
- - How do housing prices change over time and how do they vary be region?
+ - How do housing prices change over time and how do they vary by region? We can answer these questions by looking at different house prices compared to time, as well as compared to geographic location.
  - Question 2
  - Question 3
-
-**Description of how it can be answered using data**
 
 ## Finding Data
 **Data Source 1**
