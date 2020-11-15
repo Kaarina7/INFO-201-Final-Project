@@ -24,11 +24,10 @@ We are interested in the field of finance/economics because we are business, eco
 - This dataset can be used to answer questions about how house prices vary by geographic region, as well as how they've changed over the past ten years. In conjunction with other data about income and rent prices that Zillow makes publicly available, this data could also be used to answer questions about cost of living.
 
 **Data Source 2**
-- Link to URL where data is from
-- Download data into project repository into data folder
-- Description of how the data was collected or generated
-- How many observations (rows) and features (columns) are in your data(1 point)?
-- What questions (from above section) can be answered using data in this dataset?
+- https://data.world/vikjam/usa-state-inequality
+- The data was collected by a professor of Economics and International Business at Sam Houston State University, Mark W. Frank Ph.D. He was able to find the income inequalities from individual tax filings that were released by the Internal Revenue Service. The data represents how each state compares in inequality from 1918-2015.     
+- The data set has 7 columns and 5,064 rows
+- The data set can answer questions about how each states’ wealth inequality has changed over the years. Also how different states compare to each other. - The data gathered from these two questions can be compared to other factors about the specific states like the political affiliation of the state during elections.
 
 **Data Source 3**
 - Link to URL where data is from
