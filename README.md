@@ -12,7 +12,7 @@ We are interested in the field of finance/economics because we are business, eco
 
 **Questions**
  - How do housing prices change over time and how do they vary by region? We can answer these questions by looking at different house prices compared to time, as well as compared to geographic location.
- - Question 2
+ - How has the wealth inequality between US states changed over time?
  - Question 3
 
 ## Finding Data
