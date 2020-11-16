@@ -27,7 +27,8 @@ We are interested in the field of finance/economics because we are business, eco
 - https://data.world/vikjam/usa-state-inequality
 - The data was collected by a professor of Economics and International Business at Sam Houston State University, Mark W. Frank Ph.D. He was able to find the income inequalities from individual tax filings that were released by the Internal Revenue Service. The data represents how each state compares in inequality from 1918-2015.     
 - The data set has 7 columns and 5,064 rows
-- The data set can answer questions about how each states’ wealth inequality has changed over the years. Also how different states compare to each other. - The data gathered from these two questions can be compared to other factors about the specific states like the political affiliation of the state during elections.
+- The data set can answer questions about how each states’ wealth inequality has changed over the years. Also how different states compare to each other.
+- The data gathered from these two questions can be compared to other factors about the specific states like the political affiliation of the state during elections.
 
 **Data Source 3**
 - https://data.world/dconc/insurance/workspace/file?filename=Insurance+Coverage+-+All+Demographics+By+County.xlsx
