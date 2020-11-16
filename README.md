@@ -30,8 +30,7 @@ We are interested in the field of finance/economics because we are business, eco
 - The data set can answer questions about how each states’ wealth inequality has changed over the years. Also how different states compare to each other. - The data gathered from these two questions can be compared to other factors about the specific states like the political affiliation of the state during elections.
 
 **Data Source 3**
-- Link to URL where data is from
-- Download data into project repository into data folder
-- Description of how the data was collected or generated
-- How many observations (rows) and features (columns) are in your data(1 point)?
-- What questions (from above section) can be answered using data in this dataset?
+- https://data.world/dconc/insurance/workspace/file?filename=Insurance+Coverage+-+All+Demographics+By+County.xlsx
+- The data in this set represents a combination of "survey data from American Community Survey, administrative records, and Census 2010 data". The Small - Area Health Insurance Estimate program then used statistical models to produce estimates by sex, race, and income group. The part of the dataset we have here shows the raw number of insured and uninsured persons by county.
+- The data set has 7 columns and 76,648 rows.
+- The data set can answer the question pertaining to the US counties/states with highest proportions of insured citizens. We can group counties together by states to determine this, or look at the data on a county-specific basis. We could also analyze the data in terms of insurance percentages vs time.
