@@ -11,9 +11,9 @@ We are interested in the field of finance/economics because we are business, eco
 - [Example 3:](https://github.com/quinamatics/Financial-Data-Analytics/blob/master/Better%20Buy.ipynb) This project takes in data about the financial situations of two different companies and performs analysis to determine which one is better off.
 
 **Questions**
- - How do housing prices change over time and how do they vary by region? We can answer these questions by looking at different house prices compared to time, as well as compared to geographic location.
- - How has the wealth inequality between US states changed over time?
- - Which counties/states have the highest proportion of citizens with insurance vs. without?
+ - How do housing prices change over time and how do they vary by region? We can answer this question by looking at different house prices compared to time, as well as compared to geographic location.
+ - How has the wealth inequality between US states changed over time? We can answer this question by looking at the wealth of different US states over a period of time, noticing trends, and comparing them.
+ - Which counties/states have the highest proportion of citizens with insurance vs. without? We can answer this by looking at data about insurates rates in different US states/counties, and then finding trends and comparing them.
 
 ## Finding Data
 **Data Source 1**
