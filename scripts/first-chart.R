@@ -14,3 +14,13 @@ location_data <- read.csv("/home/kaarina/Documents/INFO201/INFO-201-Final-Projec
 location_data <- mutate(location_data, "City, State" = paste(city, state_id))
 
 city_location <- dplyr::left_join(city_data, location_data, by = "City, State")
+
+leaflet(data = city_location) %>%
+  addTiles() %>%
+  setView(lng = -100, lat = 40, zoom = 3) %>%
+  addCircles(
+    lat = ~lat,
+    lng = ~lng,
+    radius = 10000,
+    stroke = FALSE,
+  )
