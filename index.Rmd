@@ -23,7 +23,7 @@ Interprets information the table, honing in on important information
 
 This map attempts to display the geographic spread of the data by placing a
 marker at each city mentioned in the data set.
-```{r city_map, echo = FALSE, message = FALSE}
+```{r city_map, echo = FALSE, message = FALSE, warning = FALSE}
 library("leaflet")
 source("scripts/first-chart.R")
 city_map
