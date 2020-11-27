@@ -33,9 +33,9 @@ makes_graph <- function(region_type, region_name, state_code = NULL) {
     state_code <- toupper(state_code)
     relevant_data <- df[df$RegionName == region_name & df$StateName == state_code, ]
   }
-  title <- relevant_data[["RegionName"]]
-  relevant_data$RegionName <- NULL
-  print(title)
+  
+  relevant_data <- as.data.frame(t(as.matrix(relevant_data)))
+  
   print(relevant_data)
   ggplot(relevant_data, aes(x = colnames(relevant_data), y = relevant_data[1, ])) +
       geom_path()

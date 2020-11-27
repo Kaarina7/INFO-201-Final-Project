@@ -5,6 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "./scripts/")
 ```
 
 ## Summary Code
@@ -23,9 +24,9 @@ Interprets information the table, honing in on important information
 
 This map attempts to display the geographic spread of the data by placing a
 marker at each city mentioned in the data set.
-```{r city_map, echo = FALSE, message = FALSE, warning = FALSE}
+```{r city map, echo = FALSE, message = FALSE, warning = FALSE}
 library("leaflet")
-source("./scripts/first-chart.R")
+source("./first-chart.R")
 city_map
 ```
 As can be seen from the graph, the cities with the highest median house prices
@@ -36,8 +37,8 @@ Angeles.
 ## Chart Number 2
 This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
-```{r price_bar_graph, echo = FALSE, message = FALSE, warning = FALSE}
-source("./scripts/bar-graph.R")
+```{r bar chart, echo = FALSE, message = FALSE, warning = FALSE}
+source("./bar-chart.R")
 price_bar_graph
 ```
 This bar graph shows how prices have dropped from 2010 to 2012. And prices have
