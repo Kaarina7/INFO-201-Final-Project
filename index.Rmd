@@ -41,6 +41,7 @@ beginning of each year to illustrate annual changes in house price
 source("./bar-chart.R")
 price_bar_graph
 ```
+
 This bar graph shows how prices have dropped from 2010 to 2012. And prices have
 risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
 indicating a general trend that house prices increase.
