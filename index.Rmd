@@ -7,22 +7,27 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Summary Code
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+For each piece of Summary Info(1 x 5): Include the piece of information using in-line R code in the paragraph
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Aggregate Table
 
-```{r cars}
-summary(cars)
-```
+Introduces the table, explaining why the particular grouping calculation was performed
+Displays well formatted column names
+Successfully renders the table in the report using an appropriate package (e.g., don't just print
+out the data frame)
+Interprets information the table, honing in on important information
+ 
+## Chart Number 1
+description of what the chart attempts to answer/understand
+Interprets information from the chart, honing in on important information
 
-## Including Plots
+## Chart Number 2
+description of what the chart attempts to answer/understand
+Interprets information from the chart, honing in on important information
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Chart Number 3
+description of what the chart attempts to answer/understand
+Interprets information from the chart, honing in on important information
+ 
