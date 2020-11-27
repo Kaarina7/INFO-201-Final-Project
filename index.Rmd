@@ -34,9 +34,15 @@ around large coastal metropolis areas such as Seattle, New York, and Los
 Angeles.
 
 ## Chart Number 2
-description of what the chart attempts to answer/understand
-Interprets information from the chart, honing in on important information
-
+This bar plot takes the average of the given median house prices at the
+beginning of each year to illustrate annual changes in house price
+```{r price_bar_graph, echo = FALSE, message = FALSE, warning = FALSE}
+source("scripts/bar-graph.R")
+price_bar_graph
+```
+This bar graph shows how prices have dropped from 2010 to 2012. And prices have
+risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
+indicating a general trend that house prices increase. 
 ## Chart Number 3
 description of what the chart attempts to answer/understand
 Interprets information from the chart, honing in on important information
