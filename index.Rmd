@@ -19,9 +19,19 @@ Successfully renders the table in the report using an appropriate package (e.g.,
 out the data frame)
 Interprets information the table, honing in on important information
  
-## Chart Number 1
-description of what the chart attempts to answer/understand
-Interprets information from the chart, honing in on important information
+## Chart 1: Map
+
+This map attempts to display the geographic spread of the data by placing a
+marker at each city mentioned in the data set.
+```{r city_map, echo = FALSE, message = FALSE}
+library("leaflet")
+source("scripts/first-chart.R")
+city_map
+```
+As can be seen from the graph, the cities with the highest median house prices
+in September 2017 (the last available date from the data) are largely clustered
+around large coastal metropolis areas such as Seattle, New York, and Los
+Angeles.
 
 ## Chart Number 2
 description of what the chart attempts to answer/understand
