@@ -30,25 +30,25 @@ aggregate_table <- function(data){
 
 
 o <- aggregate_table(data)
-data <- read.csv("../Info201/INFO-201-Final-Project/project-data/median-listing-price/State_MedianListingPrice_AllHomes.csv",
+data <- read.csv("C:/Users/rchap/Info201/INFO-201-Final-Project/project-data/median-listing-price/State_MedianListingPrice_AllHomes.csv",
                  stringsAsFactors = FALSE)
 
 
 
 
-a <- data[, grep("201|RegionName", names(data))]
-x <- data %>%
-  gather(key = "month", value = "list_price", -RegionName) %>%
-  group_by(RegionName) %>%
-  filter(
-    !is.na(list_price)
-  ) %>%
-  mutate(
-    list_price = as.numeric(list_price)
-  ) %>%
-  summarise(
-    list_price = max(list_price, na.rm = TRUE)
-  ) %>%
-  arrange(desc(list_price))
- 
+# a <- data[, grep("201|RegionName", names(data))]
+# x <- data %>%
+#   gather(key = "month", value = "list_price", -RegionName) %>%
+#   group_by(RegionName) %>%
+#   filter(
+#     !is.na(list_price)
+#   ) %>%
+#   mutate(
+#     list_price = as.numeric(list_price)
+#   ) %>%
+#   summarise(
+#     list_price = max(list_price, na.rm = TRUE)
+#   ) %>%
+#   arrange(desc(list_price))
+#  
 

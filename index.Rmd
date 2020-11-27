@@ -7,22 +7,50 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Summary Code
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+For each piece of Summary Info(1 x 5): Include the piece of information using in-line R code in the paragraph
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Aggregate Table
 
-```{r cars}
-summary(cars)
+Introduces the table, explaining why the particular grouping calculation was performed
+Displays well formatted column names
+Successfully renders the table in the report using an appropriate package (e.g., don't just print
+out the data frame)
+Interprets information the table, honing in on important information
+```{r echo = FALSE}
+source("scripts/aggregatetable.R")
+data <- read.csv("C:/Users/rchap/Info201/INFO-201-Final-Project/project-data/median-listing-price/State_MedianListingPrice_AllHomes.csv",
+                 stringsAsFactors = FALSE)
+kable(aggregate_table(data), format = "pipe", align = "c")
+aggregate_table(data)
+
 ```
+## Chart 1: Map
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+This map attempts to display the geographic spread of the data by placing a
+marker at each city mentioned in the data set.
+```{r city_map, echo = FALSE, message = FALSE, warning = FALSE}
+library("leaflet")
+source("scripts/first-chart.R")
+city_map
 ```
+As can be seen from the graph, the cities with the highest median house prices
+in September 2017 (the last available date from the data) are largely clustered
+around large coastal metropolis areas such as Seattle, New York, and Los
+Angeles.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Chart Number 2
+This bar plot takes the average of the given median house prices at the
+beginning of each year to illustrate annual changes in house price
+```{r price_bar_graph, echo = FALSE, message = FALSE, warning = FALSE}
+source("scripts/bar-graph.R")
+price_bar_graph
+```
+This bar graph shows how prices have dropped from 2010 to 2012. And prices have
+risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
+indicating a general trend that house prices increase. 
+## Chart Number 3
+description of what the chart attempts to answer/understand
+Interprets information from the chart, honing in on important information
+ 
