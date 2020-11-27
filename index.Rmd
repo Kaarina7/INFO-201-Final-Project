@@ -25,7 +25,7 @@ This map attempts to display the geographic spread of the data by placing a
 marker at each city mentioned in the data set.
 ```{r city_map, echo = FALSE, message = FALSE, warning = FALSE}
 library("leaflet")
-source("scripts/first-chart.R")
+source("./scripts/first-chart.R")
 city_map
 ```
 As can be seen from the graph, the cities with the highest median house prices
@@ -37,12 +37,13 @@ Angeles.
 This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
 ```{r price_bar_graph, echo = FALSE, message = FALSE, warning = FALSE}
-source("scripts/bar-graph.R")
+source("./scripts/bar-graph.R")
 price_bar_graph
 ```
 This bar graph shows how prices have dropped from 2010 to 2012. And prices have
 risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
-indicating a general trend that house prices increase. 
+indicating a general trend that house prices increase.
+
 ## Chart Number 3
 description of what the chart attempts to answer/understand
 Interprets information from the chart, honing in on important information
