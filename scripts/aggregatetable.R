@@ -51,22 +51,4 @@ x <- data %>%
   ) %>%
   arrange(desc(list_price))
  
-# else if(location_type == "City") {
-#   columns_needed <- data[, grep("201|Metro", names(data))]
-#   x <- data %>%
-#     gather(key = "month", value = "list_price", -Metro) %>%
-#     group_by(Metro) %>%
-#     filter(
-#       !is.na(list_price)
-#     ) %>%
-#     filter(str_detect(month, "201")) %>%
-#     mutate(
-#       list_price = as.numeric(list_price)
-#     ) %>%
-#     summarise(
-#       list_price = mean(list_price, na.rm = TRUE)
-#     ) %>%
-#     arrange(desc(list_price)) %>%
-#     top_n(10)
-# 
-# }
+
