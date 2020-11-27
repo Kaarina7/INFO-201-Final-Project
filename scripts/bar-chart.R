@@ -3,7 +3,6 @@ library(dplyr)
 library(ggplot2)
 
 # loads the data set
-setwd("~/INFO201/INFO-201-Final-Project/scripts")
 city_data <- read.csv("../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
                       stringsAsFactors = FALSE)
 
