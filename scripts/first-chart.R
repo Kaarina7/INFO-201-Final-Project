@@ -2,6 +2,7 @@ library("dplyr")
 library("leaflet")
 
 # read in dataset
+setwd("~/INFO201/INFO-201-Final-Project/scripts")
 city_data <- read.csv("../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
                       stringsAsFactors = FALSE)
 
