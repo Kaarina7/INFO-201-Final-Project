@@ -10,7 +10,13 @@ knitr::opts_knit$set(root.dir = "./scripts/")
 
 ## Summary Code
 
-For each piece of Summary Info(1 x 5): Include the piece of information using in-line R code in the paragraph
+Looking at the dataset, which displays US city median house prices, we can note
+a few pieces of interesting information. According to the data, the city with
+the highest median house price in 2017 was NAME HERE, while the city with the 
+lowest median house price was NAME HERE. The average median US city house price
+was NUMBER HERE in 2017. The median 2017 house price in New York, which is the
+largest city in the dataset, was NUMBER HERE. The median 2017 house price in
+Winterset, which is tied for the smallest city, was NUMBER HERE.
 
 ## Aggregate Table
 The table created displays the highest 15 listing prices for the data sets. The
