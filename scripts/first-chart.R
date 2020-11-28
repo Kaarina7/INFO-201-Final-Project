@@ -28,7 +28,7 @@ map_maker <- function(dataset) {
     paste0("<p>", dataset[i, "name"], "<p></p>",
            dataset[i, "city"], "</p><p>")
   })
-  
+ 
   # create map with details
   city_map <- leaflet(data = dataset) %>%
     addTiles() %>%
