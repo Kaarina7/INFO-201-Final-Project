@@ -20,6 +20,7 @@ identifies the location type of the data set (i.e. City, State, County). The
 
 ```{r aggregate table, echo = FALSE}
 source("./aggregate_Table.R")
+library(knitr)
 kable(aggregate_table(data), format = "pipe", align = "c")
 aggregate_table(data)
 
