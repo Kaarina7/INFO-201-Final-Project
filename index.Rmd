@@ -13,13 +13,18 @@ knitr::opts_knit$set(root.dir = "./scripts/")
 For each piece of Summary Info(1 x 5): Include the piece of information using in-line R code in the paragraph
 
 ## Aggregate Table
+The table created displays the highest 15 listing prices for the data sets. The
+grouping calculation was done with "RegionName" because that column is what 
+identifies the location type of the data set (i.e. City, State, County). The 
+"RegionName" column is present in every data set so that is why it is used. 
 
-Introduces the table, explaining why the particular grouping calculation was performed
-Displays well formatted column names
-Successfully renders the table in the report using an appropriate package (e.g., don't just print
-out the data frame)
-Interprets information the table, honing in on important information
- 
+```{r aggregate table, echo = FALSE}
+source("./aggregate_Table.R")
+library(knitr)
+kable(aggregate_table(data), format = "pipe", align = "c")
+aggregate_table(data)
+
+```
 ## Chart 1: Map
 
 This map attempts to display the geographic spread of the data by placing a
@@ -39,7 +44,7 @@ This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
 ```{r bar chart, echo = FALSE, message = FALSE, warning = FALSE}
 source("./bar-chart.R")
-price_bar_graph
+bar_graph(city_data)
 ```
 
 This bar graph shows how prices have dropped from 2010 to 2012. And prices have

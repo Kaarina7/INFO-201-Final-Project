@@ -1,10 +1,43 @@
 library(dplyr)
 
+city_price_data <- read.csv(
+  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv")
+
+# gets summary information about a given dataset
 get_summary_info <- function(dataset) {
-  summary_list <- list()
-  summary_list$col_num <- length(unique(colnames(dataset)))
-  summary_list$ <- 
-  return(summary_list)
+  # gets the city with the highest median house price in 2017
+  highest_median_price_2017 <- city_price_data %>%
+    select(RegionName, X2017.01) %>%
+    filter(X2017.01 == max(X2017.01, na.rm = TRUE)) %>%
+    pull(RegionName)
+  
+  # gets the city with the lowest median house price in 2017
+  lowest_median_price_2017 <- city_price_data %>%
+    select(RegionName, X2017.01) %>%
+    filter(X2017.01 == min(X2017.01, na.rm = TRUE)) %>%
+    pull(RegionName)
+  
+  # gets the average median house price in 2017
+  average_median_price_2017 <- city_price_data %>%
+    select(RegionName, X2017.01) %>%
+    filter(X2017.01 != is.na(X2017.01)) %>%
+    summarize(mean = mean(X2017.01)) %>%
+    pull(mean)
+  
+  # gets the median price of the largest city, New York in 2017
+  new_york_2017_price <- city_price_data %>%
+    filter(RegionName == "New York") %>%
+    pull(X2017.01)
+  
+  # gets the median price of Winterset, which is tied for smallest city listed
+  winterset_2017_price <- city_price_data %>%
+    filter(RegionName == "Winterset") %>%
+    pull(X2017.01)
+  
+  #returns a list of 2017 summary info
+  return(list(highest_price = highest_median_price_2017,
+              lowest_price = lowest_median_price_2017,
+              average_price = average_median_price_2017,
+              new_york_price = new_york_2017_price,
+              winterset_price = winterset_2017_price))
 }
-data <- read.csv("C:/Users/rchap/Info201/INFO-201-Final-Project/project-data/median-listing-price/State_MedianListingPrice_AllHomes.csv")
-get_summary_info(data)
