@@ -35,9 +35,9 @@ get_summary_info <- function(dataset) {
     pull(X2017.01)
   
   #returns a list of 2017 summary info
-  return(list(highest_price = highest_median_price_2017,
-              lowest_price = lowest_median_price_2017,
-              average_price = average_median_price_2017,
-              new_york_price = new_york_2017_price,
-              winterset_price = winterset_2017_price))
+  return(c(c("Highest Price:" = highest_median_price_2017),
+              c("Lowest Price:" = lowest_median_price_2017),
+              c("Average Price:" = average_median_price_2017),
+              c("New_York_Price:" = new_york_2017_price),
+              c("Winterset_Price:" = winterset_2017_price)))
 }
