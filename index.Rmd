@@ -38,7 +38,7 @@ marker at each city mentioned in the data set.
 ```{r city map, echo = FALSE, message = FALSE, warning = FALSE}
 library("leaflet")
 source("./first-chart.R")
-city_map
+map_maker(city_location)
 ```
 As can be seen from the graph, the cities with the highest median house prices
 in September 2017 (the last available date from the data) are largely clustered
