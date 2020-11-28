@@ -30,13 +30,11 @@ aggregate_table <- function(data) {
     arrange(desc(list_price)) %>%
     top_n(15)
 }
+x <- read.csv(
+  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+              stringsAsFactors = FALSE)
+
+highest_cities_table <- aggregate_table(X)
 
 
-o <- aggregate_table(X)
-X <- read.csv("C:/Users/rchap/Info201/INFO-201-Final-Project/project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
-                 stringsAsFactors = FALSE)
-columns_needed <- data_11[, grep("201|RegionName", names(data_11))]
 lint("aggregate_Table.R")
-
-
-
