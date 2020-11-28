@@ -11,11 +11,11 @@ library(lintr)
 city_data <- read.csv(
   "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
   stringsAsFactors = FALSE)
-columns <- c("201|RegionName")
+
 aggregate_table <- function(data) {
   data %>%
     #Getting all the year columns and the Region Name column
-    select(matches(columns)) %>%
+    select(matches("201|RegionName")) %>%
     #Using Gather to Make Month Column have old column values as rows
     gather(key = "month", value = "list_price", -RegionName) %>%
     group_by(RegionName) %>%
@@ -25,10 +25,14 @@ aggregate_table <- function(data) {
     mutate(
       list_price = as.numeric(list_price)
     ) %>%
-    summarise(
-      list_price = mean(list_price, na.rm = TRUE)
+    rename(
+      Region.Name = RegionName,
+      List.Price = list_price
     ) %>%
-    arrange(desc(list_price)) %>%
+    summarise(
+      List.Price = mean(List.Price, na.rm = TRUE)
+    ) %>%
+    arrange(desc(List.Price)) %>%
     top_n(15)
 }
 

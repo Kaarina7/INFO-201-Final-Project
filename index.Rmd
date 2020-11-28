@@ -30,9 +30,17 @@ The below data had the city data passed into the function.
 
 ```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
 library("knitr")
-library("dplyr")
+library("kableExtra")
 source("./aggregate_Table.R")
-kable(aggregate_table(city_data), format = "pipe", align = "c")
+kable(
+  aggregate_table(city_data), align = "c",
+  caption = "Top 15 Cities by List Price"
+  ) %>%
+  kable_styling(font_size = 20) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  row_spec(1, bold = TRUE, color = 'white', background = "#00868B") %>%
+  row_spec(c(3,5,7,9,11,13,15), bold = TRUE, color = 'black', background = '#BFEFFF') %>%
+  row_spec(c(2,4,6,8,10,12,14), bold = TRUE, color = 'white', background = '#236B8E')
 
 ```
 ## Chart 1: Map
