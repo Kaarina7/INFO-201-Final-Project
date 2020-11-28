@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Midpoint Deliverable"
 output: html_document
 ---
 
@@ -26,8 +26,8 @@ identifies the location type of the data set (i.e. City, State, County). The
 The below data had the city data passed into the function. 
 
 ```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
-library(knitr)
-library(dplyr)
+library("knitr")
+library("dplyr")
 source("./aggregate_Table.R")
 kable(aggregate_table(city_data), format = "pipe", align = "c")
 
