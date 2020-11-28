@@ -19,7 +19,7 @@ Successfully renders the table in the report using an appropriate package (e.g.,
 out the data frame)
 Interprets information the table, honing in on important information
 ```{r echo = FALSE}
-source("scripts/aggregatetable.R")
+source("scripts/aggrega_Table.R")
 data <- read.csv("C:/Users/rchap/Info201/INFO-201-Final-Project/project-data/median-listing-price/State_MedianListingPrice_AllHomes.csv",
                  stringsAsFactors = FALSE)
 kable(aggregate_table(data), format = "pipe", align = "c")
