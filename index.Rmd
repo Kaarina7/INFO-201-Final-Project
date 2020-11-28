@@ -34,13 +34,13 @@ library("kableExtra")
 source("./aggregate_Table.R")
 kable(
   aggregate_table(city_data), align = "c",
-  caption = "Top 15 Cities by List Price"
+  caption = "Top 15 Cities by Median Price",
+  col.names = c("City", "Median Price ($)")
   ) %>%
   kable_styling(font_size = 20) %>%
   kable_styling(latex_options = "scale_down") %>%
-  row_spec(1, bold = TRUE, color = 'white', background = "#00868B") %>%
-  row_spec(c(3,5,7,9,11,13,15), bold = TRUE, color = 'black', background = '#BFEFFF') %>%
-  row_spec(c(2,4,6,8,10,12,14), bold = TRUE, color = 'white', background = '#236B8E')
+  row_spec(c(1,3,5,7,9,11,13,15), color = 'black', background = '#BFEFFF') %>%
+  row_spec(c(2,4,6,8,10,12,14), color = 'white', background = '#236B8E')
 
 ```
 ## Chart 1: Map
@@ -55,7 +55,8 @@ map_maker(city_location)
 As can be seen from the graph, the cities with the highest median house prices
 in September 2017 (the last available date from the data) are largely clustered
 around large coastal metropolis areas such as Seattle, New York, and Los
-Angeles.
+Angeles. This indicates a trend that larger cities have higher median house
+prices.
 
 ## Chart Number 2
 This bar plot takes the average of the given median house prices at the
