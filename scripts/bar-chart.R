@@ -22,7 +22,7 @@ city_year_averages <- cbind(year = rownames(city_year_averages),
                             city_year_averages)
 rownames(city_year_averages) <- NULL
 summary_data <- data.frame(city_year_averages)
-summary_data[["V2"]] <- as.numeric(summary_df$V2)
+summary_data[["V2"]] <- as.numeric(summary_data$V2)
 
 # creates the bar graph using summary data
 labels <- c("2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017")
