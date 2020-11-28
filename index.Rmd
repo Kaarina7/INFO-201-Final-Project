@@ -55,7 +55,8 @@ map_maker(city_location)
 As can be seen from the graph, the cities with the highest median house prices
 in September 2017 (the last available date from the data) are largely clustered
 around large coastal metropolis areas such as Seattle, New York, and Los
-Angeles.
+Angeles. This indicates a trend that larger cities have higher median house
+prices.
 
 ## Chart Number 2
 This bar plot takes the average of the given median house prices at the
