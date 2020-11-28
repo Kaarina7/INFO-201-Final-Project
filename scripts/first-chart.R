@@ -2,7 +2,8 @@ library("dplyr")
 library("leaflet")
 
 # read in dataset
-city_data <- read.csv("../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+city_data <- read.csv(
+  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
                       stringsAsFactors = FALSE)
 
 # add City, State column to dataset
