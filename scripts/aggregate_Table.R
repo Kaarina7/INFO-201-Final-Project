@@ -34,7 +34,7 @@ x <- read.csv(
   "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
               stringsAsFactors = FALSE)
 
-highest_cities_table <- aggregate_table(X)
+highest_cities_table <- aggregate_table(x)
 
 
 lint("aggregate_Table.R")
