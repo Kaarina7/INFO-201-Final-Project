@@ -3,7 +3,8 @@ library(dplyr)
 library(ggplot2)
 
 # loads the data set
-city_data <- read.csv("../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+city_data <- read.csv(
+  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
                       stringsAsFactors = FALSE)
 
 #function that creates the bar graph
@@ -32,7 +33,9 @@ bar_graph <- function(dataset) {
     theme_minimal() +
     xlab("Year") +
     ylab("Average Median House Price (USD)") +
-    coord_cartesian(ylim = c(0, 300000))
-  
+    coord_cartesian(ylim = c(0, 300000)) +
+    ggtitle("Change in House Prices From 2010 to 2017") +
+    theme(plot.title = element_text(hjust = 0.5))
+
   return(price_bar_graph)
 }
