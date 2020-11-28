@@ -44,7 +44,7 @@ This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
 ```{r bar chart, echo = FALSE, message = FALSE, warning = FALSE}
 source("./bar-chart.R")
-price_bar_graph
+bar_graph(city_data)
 ```
 This bar graph shows how prices have dropped from 2010 to 2012. And prices have
 risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
