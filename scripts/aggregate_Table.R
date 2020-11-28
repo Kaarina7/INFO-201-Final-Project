@@ -1,6 +1,5 @@
 library(dplyr)
 library(lintr)
-library(reshape2)
 library(tidyr)
 library(tidyverse)
 library(stringr)
