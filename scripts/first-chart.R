@@ -40,4 +40,5 @@ map_maker <- function(dataset) {
       stroke = FALSE,
       label = lapply(point_labels, htmltools::HTML)
     )
+  return(city_map)
 }
