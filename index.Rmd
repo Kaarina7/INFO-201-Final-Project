@@ -23,9 +23,13 @@ The table created displays the highest 15 listing prices for the data sets. The
 grouping calculation was done with "RegionName" because that column is what 
 identifies the location type of the data set (i.e. City, State, County). The 
 "RegionName" column is present in every data set so that is why it is used. 
+The below data had the city data passed into the function. 
 
-```{r aggregate table, echo = FALSE}
-
+```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
+library(knitr)
+library(dplyr)
+source("./aggregate_Table.R")
+kable(aggregate_table(city_data), format = "pipe", align = "c")
 
 ```
 ## Chart 1: Map
