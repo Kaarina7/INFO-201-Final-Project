@@ -8,12 +8,14 @@ library(lintr)
 # we are using is organized by a different type of region, city, state, county,
 # neighborhood, and Zip code. The data can be applied to show the average list
 # price by region over the course of 7 years. It displays the highest 10 prices.
-
+city_data <- read.csv(
+  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+  stringsAsFactors = FALSE)
+columns <- c("201|RegionName")
 aggregate_table <- function(data) {
-
   data %>%
     #Getting all the year columns and the Region Name column
-    select(matches("201|RegionName")) %>%
+    select(matches(columns)) %>%
     #Using Gather to Make Month Column have old column values as rows
     gather(key = "month", value = "list_price", -RegionName) %>%
     group_by(RegionName) %>%
@@ -29,11 +31,8 @@ aggregate_table <- function(data) {
     arrange(desc(list_price)) %>%
     top_n(15)
 }
-x <- read.csv(
-  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
-              stringsAsFactors = FALSE)
 
-highest_cities_table <- aggregate_table(x)
+highest_cities_table1 <- aggregate_table(city_data)
 
 
 lint("aggregate_Table.R")
