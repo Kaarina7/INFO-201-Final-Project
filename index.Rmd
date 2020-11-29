@@ -7,6 +7,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "./scripts/")
 ```
+## Info about the Project
+We are interested in the field of finance/economics because we are business, economics, and computational finance majors. We feel like the field of finance/economics intersects all of our major-related interests. The data sets we decided to use came from Zillow which lists the median housing prices across the nation according to a different regional category. Economic and financial analysis can be done on the housing market by analyzing the data sets. 
+[Link to where data was downloaded](https://data.world/zillow-data/median-list-price/)
 
 ## Summary Code
 ```{r summary info, echo = FALSE, message = FALSE, warning = FALSE}
