@@ -7,11 +7,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "./scripts/")
 ```
-## Info about the Project
-We are interested in the field of finance/economics because we are business, economics, and computational finance majors. We feel like the field of finance/economics intersects all of our major-related interests. The data sets we decided to use came from Zillow which lists the median housing prices across the nation according to a different regional category. Economic and financial analysis can be done on the housing market by analyzing the data sets. 
-[Link to where data was downloaded](https://data.world/zillow-data/median-list-price/)
+### Introduction to our project
+We are business, economics, and computational finance majors, and we felt that the field of housing markets intersected all of our major-related interests, so we chose to focus on it for our project. The data sets we decided to use come from Zillow. Zillow regularly gathers information about all of the homes listed for sale on their website and makes it publicly available, and we decided to make use of several pieces of it. 
+The first lists the median housing prices across the nation according to different regional categories. It can be used to answer questions about how house prices vary by geographic region, as well as how they've changed over the past ten years. The second lists the average number of days a listing stays on Zillow by region. This can be used to examine changes in the speed with which houses sell in different areas.
+The pricing data was downloaded [here](https://data.world/zillow-data/median-list-price/) and the listing data was downloaded [here](https://data.world/zillow-data/days-on-zillow).
 
-## Summary Code
+### Summary Code
 ```{r summary info, echo = FALSE, message = FALSE, warning = FALSE}
 source("./summary-information.R")
 ```
@@ -27,7 +28,7 @@ was `r get_summary_info(city_price_data)[4]`. The median 2017 house price in Win
 which is tied for the smallest city listed in the data, was `r get_summary_info(city_price_data)[5]`. This data suggests that the size of city
 might be correlated with the price. 
 
-## Aggregate Table
+### Aggregate Table
 The table created displays the highest 15 listing prices for the data sets. The
 grouping calculation was done with "RegionName" because that column is what 
 identifies the location type of the data set (i.e. City, State, County). The 
@@ -50,8 +51,7 @@ kable(
 
 ```
 
-## Chart 1: Map
-
+### Chart Number 1: Map
 This map attempts to display the geographic spread of the data by placing a
 marker at each city mentioned in the data set. The size of the marker is
 scaled linearly on the median house price in September 2017
@@ -66,7 +66,7 @@ around large coastal metropolis areas such as Seattle, New York, and Los
 Angeles. This indicates a trend that larger cities have higher median house
 prices.
 
-## Chart 2: Bar
+### Chart Number 2: Bar Graph
 This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
 ```{r bar chart, echo = FALSE, message = FALSE, warning = FALSE}
@@ -78,7 +78,7 @@ This bar graph shows how prices have dropped from 2010 to 2012. And prices have
 risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
 indicating a general trend that house prices increase.
 
-## Chart 3: Line
+### Chart Number 3: Line Graph
 This line graph looks at the average number of days a house remains listed on Zillow by time, and it breaks the data down by region. It answers questions such as "When did houses take the longest time to sell?", and it will takes user input to decide which region to show. Below is an example of King County, and Washington as a whole.
 ```{r line graph, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 10}
 source("./days-listed-line-chart.R")
