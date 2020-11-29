@@ -16,10 +16,13 @@ Looking at the dataset, which displays US city median house prices, we can note
 a few pieces of interesting information. According to the data, the city with
 the highest median house price in 2017 was `r get_summary_info(city_price_data)[1]`,
 while the city with the lowest median house price was `r get_summary_info(city_price_data)[2]`. 
-The average median US city house price was `r get_summary_info(city_price_data)[3]` in 2017.
+The average median US city house price was 
+`r get_summary_info(city_price_data)[3]` in 2017. These values demonstrate that
+house price varies significantly depending on the city.
 The median 2017 house price in New York, which is the largest city in the dataset,
 was `r get_summary_info(city_price_data)[4]`. The median 2017 house price in Winterset,
-which is tied for the smallest city, was `r get_summary_info(city_price_data)[5]`.
+which is tied for the smallest city listed in the data, was `r get_summary_info(city_price_data)[5]`. This data suggests that the size of city
+might be correlated with the price. 
 
 ## Aggregate Table
 The table created displays the highest 15 listing prices for the data sets. The
@@ -43,10 +46,12 @@ kable(
   row_spec(c(2,4,6,8,10,12,14), color = 'white', background = '#236B8E')
 
 ```
+
 ## Chart 1: Map
 
 This map attempts to display the geographic spread of the data by placing a
-marker at each city mentioned in the data set.
+marker at each city mentioned in the data set. The size of the marker is
+scaled linearly on the median house price in September 2017
 ```{r city map, echo = FALSE, message = FALSE, warning = FALSE}
 library("leaflet")
 source("./first-chart.R")
