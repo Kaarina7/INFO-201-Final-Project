@@ -66,7 +66,7 @@ around large coastal metropolis areas such as Seattle, New York, and Los
 Angeles. This indicates a trend that larger cities have higher median house
 prices.
 
-## Chart Number 2
+## Chart 2: Bar
 This bar plot takes the average of the given median house prices at the
 beginning of each year to illustrate annual changes in house price
 ```{r bar chart, echo = FALSE, message = FALSE, warning = FALSE}
@@ -78,7 +78,11 @@ This bar graph shows how prices have dropped from 2010 to 2012. And prices have
 risen from 2012 to 2017. Prices were slightly higher in 2017 than in 2010,
 indicating a general trend that house prices increase.
 
-## Chart Number 3
-description of what the chart attempts to answer/understand
-Interprets information from the chart, honing in on important information
- 
+## Chart 3: Line
+This line graph looks at the average number of days a house remains listed on Zillow by time, and it breaks the data down by region. It answers questions such as "When did houses take the longest time to sell?", and it will takes user input to decide which region to show. Below is an example of King County, and Washington as a whole.
+```{r line graph, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 10}
+source("./days-listed-line-chart.R")
+line_graph("county", "king", "WA")
+line_graph("state", "washington")
+```
+The graphs clearly show that over the years, selling a house has become a quicker process. Even more pronounced in the difference in time it takes to sell a house by season. Depending on the location, houses listed on Zillow in Winter and Fall can take nearly twice as long to sell as those listed in Spring and Summer.

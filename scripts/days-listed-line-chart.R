@@ -1,5 +1,6 @@
 # load necessary packages
 library(stringr)
+library(dplyr)
 library(ggplot2)
 
 # load and clean data frames
@@ -22,23 +23,40 @@ days_listed_county$RegionName <- tolower(days_listed_county$RegionName)
 
 # function to produce a line graph of days listed on zillow over time
 # takes the take of region (county or state) and then a region name as inputs
-makes_graph <- function(region_type, region_name, state_code = NULL) {
+line_graph <- function(region_type, region_name, state_code = NULL) {
   region_type <- tolower(region_type)
   region_name <- tolower(region_name)
   if (region_type == "state") {
+    state_code <- NULL
     df <- days_listed_state
     relevant_data <- df[df$RegionName == region_name, ]
   } else { # region_type == county
     df <- days_listed_county
     state_code <- toupper(state_code)
-    relevant_data <- df[df$RegionName == region_name & df$StateName == state_code, ]
+    df <- filter(df, StateName == state_code)
+    relevant_data <- df[df$RegionName == region_name, ]
   }
-  
   relevant_data <- as.data.frame(t(as.matrix(relevant_data)))
-  
-  print(relevant_data)
-  ggplot(relevant_data, aes(x = colnames(relevant_data), y = relevant_data[1, ])) +
-      geom_path()
-}
+  names(relevant_data) <- as.matrix(relevant_data[1, ])
+  relevant_data <- tibble::rownames_to_column(relevant_data, "Dates")
+  relevant_data <- relevant_data[-1, ]
+  if (region_type == "county") {
+    relevant_data <- relevant_data[-1, ]
+  }
+  relevant_data[[region_name]] <- as.numeric(relevant_data[[region_name]])
 
-makes_graph("state", "Washington")
+  season_labels <- paste(rep(c("Winter\n", "Spring\n", "Summer\n", "Fall\n"),
+                   each = 3), rep(2010:2017, each = 12))
+  for (n in 1:96) {
+    if (n %% 3 != 1) {
+      season_labels[n] <- ""
+    }
+  }
+  ggplot(relevant_data, aes(x = Dates, y = .data[[region_name]], group = 1)) +
+      geom_line() +
+      labs(title = paste0("Average Days a Home is Listed on Zillow in ",
+        str_to_title(region_name), ifelse(is.null(state_code),
+        " State", paste(" County,", toupper(state_code)))), y = "Days") +
+      scale_x_discrete(labels = season_labels) + geom_point() +
+      theme(axis.text.x = element_text(angle = 90)) + geom_line(color = "blue")
+}
