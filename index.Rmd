@@ -35,13 +35,14 @@ identifies the location type of the data set (City). The
 "RegionName" column is present in every data set so that is why it is used. 
 By using city to group, we can tell which cities have the highest prices.
 
+<center><h3><b>Top 15 Cities by Median Price</b></h3></center>
+
 ```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
 library("knitr")
 library("kableExtra")
 source("./aggregate_Table.R")
 kable(
   aggregate_table(city_data), align = "c",
-  caption = "Top 15 Cities by Median Price",
   col.names = c("City", "Median Price ($)")
   ) %>%
   kable_styling(font_size = 20) %>%
