@@ -36,7 +36,4 @@ aggregate_table <- function(data) {
     top_n(15)
 }
 
-highest_cities_table1 <- aggregate_table(city_data)
-
-
 lint("aggregate_Table.R")
