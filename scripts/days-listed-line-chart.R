@@ -12,7 +12,7 @@ days_listed_state <- days_listed_state[-2:-1, ]
 days_listed_state[["CBSA Title"]] <- NULL
 days_listed_state <- subset(days_listed_state,
                             select = -c(StateName, RegionType, SizeRank))
-days_listed_state$RegionName <- tolower(days_listed_state$RegionName)
+days_listed_state[["RegionName"]] <- tolower(days_listed_state[["RegionName"]])
 
 days_listed_county <-
       read.csv("../project-data/days-on-zillow/daysonzillow_public_county.csv",
@@ -21,7 +21,8 @@ united_states <- days_listed_county[1, ]
 days_listed_county <- days_listed_county[-1, ]
 days_listed_county <- subset(days_listed_county,
                              select = -c(RegionType, CBSA.Title, SizeRank))
-days_listed_county$RegionName <- tolower(days_listed_county$RegionName)
+days_listed_county[["RegionName"]] <-
+  tolower(days_listed_county[["RegionName"]])
 
 # function to produce a line graph of days listed on zillow over time
 # takes the take of region (county or state) and then a region name as inputs
@@ -36,7 +37,7 @@ line_graph <- function(region_type, region_name, state_code = NULL) {
   } else { # region_type is equal to county
     df <- days_listed_county
     state_code <- toupper(state_code)
-    df <- filter(df, StateName == state_code)
+    df <- filter(df, df[["StateName"]] == state_code)
     relevant_data <- df[df$RegionName == region_name, ]
   }
   # clean the data to make it graph ready
