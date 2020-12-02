@@ -31,9 +31,11 @@ might be correlated with the price.
 ### Aggregate Table
 The table created displays the highest 15 listing prices for the data sets. The
 grouping calculation was done with "RegionName" because that column is what 
-identifies the location type of the data set (i.e. City, State, County). The 
+identifies the location type of the data set (City). The 
 "RegionName" column is present in every data set so that is why it is used. 
-The below data had the city data passed into the function. 
+By using city to group, we can tell which cities have the highest prices.
+
+<center><h3><b>Top 15 Cities by Median Price</b></h3></center>
 
 ```{r aggregate table, echo = FALSE,message = FALSE, warning = FALSE}
 library("knitr")
@@ -41,7 +43,6 @@ library("kableExtra")
 source("./aggregate_Table.R")
 kable(
   aggregate_table(city_data), align = "c",
-  caption = "Top 15 Cities by Median Price",
   col.names = c("City", "Median Price ($)")
   ) %>%
   kable_styling(font_size = 20) %>%
@@ -50,6 +51,11 @@ kable(
   row_spec(c(2,4,6,8,10,12,14), color = 'white', background = '#236B8E')
 
 ```
+
+One key insight from this table is that most of these listed cities are not
+big, well-known cities. Another trend noticed is words like "island", "harbor",
+and "beach" appearing in some of these city names, implying that a lot of the
+most expensive cities are near bodies of water.
 
 ### Chart Number 1: Map
 This map attempts to display the geographic spread of the data by placing a
