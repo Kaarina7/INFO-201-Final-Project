@@ -27,7 +27,7 @@ city_location <- city_data %>%
 map_main_panel <- mainPanel(
   h1("Interactive Map"),
   p("This map helps answer the question of how median house prices have changed
-  geographically over time"),
+  geographically over time."),
   leafletOutput("map")
 )
 
@@ -40,6 +40,7 @@ map_side_panel <- sidebarPanel(
   )
 )
 
+# create tab for map
 map_ui <- tabPanel(
   title = "Map",
   sidebarLayout(
@@ -48,26 +49,26 @@ map_ui <- tabPanel(
   )
 )
 
-  
+# create labels for map
+point_labels <- lapply(seq(nrow(city_location)), function(i) {
+  paste0("<p>", city_location[i, "name"], "<p></p>",
+         city_location[i, "city"], "</p><p>")
+})
+
+# create map with details
+city_map <- leaflet(data = city_location) %>%
+  addTiles() %>%
+  setView(lng = -96, lat = 40, zoom = 4) %>%
+  addCircles(
+    lat = ~lat,
+    lng = ~lng,
+    radius = ~radius,
+    stroke = FALSE,
+    label = lapply(point_labels, htmltools::HTML)
+  )
+
 map_server <- function(input, output) {
-  renderLeaflet(
-    "map",
-    # create labels
-    point_labels <- lapply(seq(nrow(city_location)), function(i) {
-      paste0("<p>", city_location[i, "name"], "<p></p>",
-             city_location[i, "city"], "</p><p>")
-    }),
-    # create map with details
-    city_map <- leaflet(data = city_location) %>%
-      addTiles() %>%
-      setView(lng = -96, lat = 40, zoom = 4) %>%
-      addCircles(
-        lat = ~lat,
-        lng = ~lng,
-        radius = ~radius,
-        stroke = FALSE,
-        label = lapply(point_labels, htmltools::HTML)
-      ))
+    output$map = renderLeaflet(city_map)
 }
 
 shinyApp(ui = map_ui, server = map_server)
