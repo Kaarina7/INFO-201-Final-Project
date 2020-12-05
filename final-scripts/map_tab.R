@@ -41,11 +41,14 @@ map_side_panel <- sidebarPanel(
 )
 
 # create tab for map
-map_ui <- tabPanel(
-  title = "Map",
-  sidebarLayout(
-    map_main_panel,
-    map_side_panel  
+map_ui <- navbarPage(
+  title = "Temp",
+  tabPanel(
+    title = "Map",
+    sidebarLayout(
+      map_main_panel,
+      map_side_panel  
+    )
   )
 )
 
@@ -55,20 +58,22 @@ point_labels <- lapply(seq(nrow(city_location)), function(i) {
          city_location[i, "city"], "</p><p>")
 })
 
-# create map with details
-city_map <- leaflet(data = city_location) %>%
-  addTiles() %>%
-  setView(lng = -96, lat = 40, zoom = 4) %>%
-  addCircles(
-    lat = ~lat,
-    lng = ~lng,
-    radius = ~radius,
-    stroke = FALSE,
-    label = lapply(point_labels, htmltools::HTML)
-  )
 
 map_server <- function(input, output) {
-    output$map = renderLeaflet(city_map)
+  # render map
+  output$map = renderLeaflet(
+    # create map with details
+    city_map <- leaflet(data = city_location) %>%
+      addTiles() %>%
+      setView(lng = -96, lat = 40, zoom = 4) %>%
+      addCircles(
+        lat = ~lat,
+        lng = ~lng,
+        radius = ~radius,
+        stroke = FALSE,
+        label = lapply(point_labels, htmltools::HTML)
+      )
+  )
 }
 
 shinyApp(ui = map_ui, server = map_server)
