@@ -1,0 +1,16 @@
+
+
+#basicText {
+  font-family: Segoe UI;
+  display: block;
+}
+#Header {
+  color: #1abc9c;
+  background: black;
+  padding: 10px;
+}
+
+#SubHeader {
+  font-weight: bold;
+  text-align: left;
+}
