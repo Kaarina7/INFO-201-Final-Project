@@ -1,16 +1,42 @@
+#Page_Header {
+  font-weight: bold;
+  color: white;
+  font-size: 60px;
+}
 
+#TabPanel {
+  background: #24305E;
+}
 
-#basicText {
+#Body {
+  background: #17252A;
+}
+#links{
   font-family: Segoe UI;
   display: block;
-}
-#Header {
-  color: #1abc9c;
-  background: black;
-  padding: 10px;
+  color: #3B8BEB;
+  font-size: 25px;
 }
 
 #OverviewSubHeader {
   font-weight: bold;
   text-align: left;
+  color: #ECECEC;
+  font-size: 35px;
+}
+#VisualSubHeader {
+  font-weight: bold;
+  text-align: left;
+  color: #Def2F1;
+  font-size: 25px;
+}
+p {
+  font-family: Segoe UI;
+  display: block;
+  color: #3B8BEB;
+  font-size: 25px;
+}
+#Header {
+  color: #B23850;
+  padding: 10px;
 }
