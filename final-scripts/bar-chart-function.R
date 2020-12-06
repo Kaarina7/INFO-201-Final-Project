@@ -40,7 +40,8 @@ bar_graph <- function(dataset, year_range, size_range) {
     xlab("Year") +
     ylab("Average Median House Price (USD)") +
     coord_cartesian(ylim = c(0, 300000)) +
-    ggtitle("Change in House Prices From 2010 to 2017") +
+    ggtitle(paste0("Change in House Prices From ", year_range[1] + 2009, " to ",
+                   tail((year_range + 2009), n = 1))) +
     theme(plot.title = element_text(hjust = 0.5))
 
   return(price_bar_graph)
