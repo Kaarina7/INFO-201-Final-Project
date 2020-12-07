@@ -3,11 +3,12 @@ library(shinydashboard)
 library(leaflet)
 library(ggplot2)
 library(plotly)
-source("./final-scripts/bar_tab.R")
-source("./final-scripts/line_tab.R")
-source("./final-scripts/map_tab.R")
-source("./final-scripts/intro_and_summary.R")
-source("./styles.css") 
+source("bar_tab.R")
+source("line_tab.R")
+source("map_tab.R")
+source("styles.css") 
+source("aggregate_Table.R")
+
 overviewInformation <- tabPanel(
   title = "Overview",
   tags$body(
@@ -111,26 +112,19 @@ conclusions <- tabPanel(
   title = "Conclusions",
   tags$h2(
       "Conclusions From Our Data "
-    ),
-<<<<<<< Updated upstream
-    p(
-      
-    )
   ),
   tags$div(
     tags$h4(
       id = "ColncldusionSubHeader",
       "Conclusions from Visualization3"
-=======
+    ),
     h2(
       "Economic Conclusions"
->>>>>>> Stashed changes
-    ),
+    )
+  ),
   p(paste0("The price in 2017 was $287,459 and in 2010 was $257,894. The price 
     increases by $", change, " which is an increase of ", per_change, "%")),
-  p(),
   plotlyOutput(outputId = "conclusion1", width = "100%"),
-  p(),
   h2(
     "Hosuing Market Insights"
   )
@@ -138,7 +132,6 @@ conclusions <- tabPanel(
 
 
 uiui <- fluidPage(
-  setwd("C:/Users/rchap/Info201/INFO-201-Final-Project/final-scripts"),
   includeCSS("style.css"),
   tags$h1(
     id = "Page_Header",
@@ -160,8 +153,7 @@ uiui <- fluidPage(
 )
 server <- function(input, output) {
   output$conclusion1 <- renderPlotly({
-    setwd("C:/Users/rchap/Info201/INFO-201-Final-Project/scripts/")
-    source("./aggregate_Table.R")
+    source("aggregate_Table.R")
     change_in_price <- city_data %>%
       select(X2010.01, X2017.09) %>%
       drop_na() %>%

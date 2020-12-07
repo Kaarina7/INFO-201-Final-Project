@@ -2,7 +2,7 @@ library(shiny)
 source("bar_tab.R")
 source("line_tab.R")
 source("map_tab.R")
-# source("intro_and_summary.R")
+source("intro_and_summary.R")
 source("styles.css") 
 overviewInformation <- tabPanel(
   title = "Overview",
@@ -19,8 +19,6 @@ overviewInformation <- tabPanel(
     the past ten years. The second lists the average number of days a listing 
     stays on Zillow by region. This can be used to examine changes in the speed 
     with which houses sell in different areas."
-    
-
   )
 )
 bar <- tabPanel(
@@ -63,7 +61,6 @@ line <- tabPanel(
 
 
 
-
 ui <- fluidPage(
   tags$div(
     id = "OverviewSection1",
@@ -97,16 +94,16 @@ ui <- fluidPage(
         id = "OverviewSubHeader",
         "Our Data sets: "
       ),
-      p(
-        "The data sets we decided to use come from Zillow. Zillow regularly gathers information about all of the homes listed for sale 
-    on their website and makes it publicly  available, and we decided to make 
-    use of several pieces of it. The first lists the median housing prices 
-    across the nation according to different regional categories. 
-    It can be used to answer questions about how house prices vary by 
-    geographic region, as well as how they've changed over the past ten years. 
-    The second lists the average number of days a listing stays on Zillow 
-    by region. This can be used to examine changes in the speed 
-    with which houses sell in different areas."
+      p("The data sets we decided to use come from Zillow. Zillow regularly
+        gathers information about all of the homes listed for sale 
+        on their website and makes it publicly  available, and we decided to
+        make use of several pieces of it. The first lists the median housing
+        prices across the nation according to different regional categories. 
+        It can be used to answer questions about how house prices vary by 
+        geographic region, as well as how they've changed over the past ten
+        years. The second lists the average number of days a listing stays on
+        Zillow by region. This can be used to examine changes in the speed 
+        with which houses sell in different areas."
       ),
       tags$h3(
         id = "OverviewSubHeader",
