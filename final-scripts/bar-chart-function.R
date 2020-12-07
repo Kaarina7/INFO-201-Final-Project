@@ -1,7 +1,7 @@
 # loads needed packages
 library(dplyr)
 library(ggplot2)
-
+library(plotly)
 # loads the data set
 city_data <- read.csv(
   "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
@@ -30,19 +30,24 @@ bar_graph <- function(dataset, year_range, size_range) {
   summary_data[["V2"]] <- as.numeric(summary_data$V2)
   year_range_data <- data.frame(summary_data$V2[year_range])
   names(year_range_data)[1] <- "price"
-  # creates the bar graph using summary data
+
   labels <- paste(year_range + 2009)
   options(scipen = 10000)
-  price_bar_graph <- ggplot(data = year_range_data, aes(x = labels,
-                                y = price, text = paste0(year_range_data))) +
-    geom_bar(stat = "identity", fill = "steelblue") +
-    theme_minimal() +
-    xlab("Year") +
-    ylab("Average Median House Price (USD)") +
-    coord_cartesian(ylim = c(0, 300000)) +
-    ggtitle(paste0("Change in House Prices From ", year_range[1] + 2009, " to ",
-                   tail((year_range + 2009), n = 1))) +
-    theme(plot.title = element_text(hjust = 0.5))
   
-  return(price_bar_graph)
+  # creates the bar graph using filtered data, and adjusts labels based
+  # on selected inputs from the ui
+  fig <- plot_ly(year_range_data,
+                 x = ~labels, y = ~price, type = 'bar', text = "",
+                 marker = list(color = 'rgb(158,202,225)',
+                               line = list(color = 'rgb(8,48,107)',
+                                           width = 1.5)))
+  fig <- fig %>% layout(title = paste0("House Price Data from ",
+                                       (year_range[1] + 2009),
+                                       " to ",
+                                       (tail(year_range, n = 1) + 2009)),
+                        xaxis = list(title = "Year"),
+                        yaxis = list(title =
+                                       "Average Median Listed House Price"))
+  
+  return(fig)
 }
