@@ -61,7 +61,8 @@ line <- tabPanel(
 
 
 
-ui <- fluidPage(
+overviewInformation <- tabPanel(
+  title = "Overview",
   tags$div(
     id = "OverviewSection1",
     tags$h3(
