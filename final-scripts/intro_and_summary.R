@@ -113,7 +113,7 @@ conclusions <- tabPanel(
   ),
   tags$div(
     tags$h4(
-      id = "ColnclusionSubHeader",
+      id = "ColncldusionSubHeader",
       "Conclusions from Visualization3"
     ),
     p(
