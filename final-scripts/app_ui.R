@@ -37,8 +37,8 @@ bar <- tabPanel(
 )
 
 map <- tabPanel(
-  title = "Visual 2",
-  h1("This is a map"),
+  title = "House Prices vs. Time",
+  h1("Geographic Change in House Prices vs. Time"),
   sidebarLayout(
     mainPanel(
       p("This map helps answer the question of how median house prices have changed
