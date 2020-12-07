@@ -38,7 +38,24 @@ bar <- tabPanel(
 
 map <- tabPanel(
   title = "Visual 2",
-  h1("This is a map")
+  h1("This is a map"),
+  sidebarLayout(
+    mainPanel(
+      p("This map helps answer the question of how median house prices have changed
+      geographically over time. The map encoding was chosen because it is easiest
+      for the user to visually track geographic movements by watching the points
+      change."),
+      leafletOutput("map")
+    ),
+    sidebarPanel(
+      # choose the year to view
+      selectInput(
+        "date",
+        label = "Choose the date",
+        choices = colnames(city_location)[6:98]
+      )
+    )
+  )
 )
 
 line <- tabPanel(
@@ -218,7 +235,7 @@ ui <- fluidPage(
     title = "Navigation Bar",
     overviewInformation,
     bar,
-#   map,
+    map,
 #   line,
 #   visual1,
 #   visual2,

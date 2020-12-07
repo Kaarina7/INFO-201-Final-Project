@@ -11,6 +11,19 @@ server <- function(input, output) {
     bar_graph(city_data, (input$range[1] - 2009):(input$range[2] - 2009),
               input$size_rank)
   })
+  output$map = renderLeaflet({
+    # create map with details
+    city_map <- leaflet(data = city_location) %>%
+      addTiles() %>%
+      setView(lng = -96, lat = 40, zoom = 4) %>%
+      addCircles(
+        lat = ~lat,
+        lng = ~lng,
+        radius = ~0.025 * city_location[[input$date]],
+        stroke = FALSE,
+        label = lapply(point_labels, htmltools::HTML)
+      )
+  })
   output$conclusion1 <- renderPlotly({
     source("aggregate_Table.R")
     change_in_price <- city_data %>%

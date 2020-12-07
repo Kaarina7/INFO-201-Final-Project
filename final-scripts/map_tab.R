@@ -41,16 +41,13 @@ map_side_panel <- sidebarPanel(
 )
 
 # create tab for map
-map_ui <- navbarPage(
-  title = "Temp",
-  tabPanel(
+map_ui <- tabPanel(
     title = "Map",
     sidebarLayout(
       map_main_panel,
       map_side_panel  
     )
   )
-)
 
 # create labels for map
 point_labels <- lapply(seq(nrow(city_location)), function(i) {
