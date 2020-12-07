@@ -1,42 +1,64 @@
+/* These styles are for the site overall */
+#Body {
+  background: #f8fbf8;
+}
+
+p {
+  font-family: Segoe UI;
+  display: block;
+  color: #0C1115;
+  font-size: 25px;
+}
+/* This is the dashboard style */
 #Page_Header {
   font-weight: bold;
-  color: white;
+  color: #00458B;
   font-size: 60px;
 }
 
-#TabPanel {
-  background: #24305E;
+#Header {
+  color: #B23850;
+  padding: 10px;
 }
-
-#Body {
-  background: #17252A;
+/* _____________________________________________________________________________
+This is for the navbar */
+.navbar {
+  background-color: #99DDFF;
+  font-weight: 30px;
+  font-family: "Segoe UI";
+  color: white;
 }
-#links{
-  font-family: Segoe UI;
-  display: block;
-  color: #3B8BEB;
-  font-size: 25px;
+.tab-panel{
+  background-color:#BE2F29;
+  color: white;
 }
+.navbar-default .navbar-brand {
+  color: white;
+}
+.navbar-default .navbar-nav {
+  color: white;
+}
+/*______________________________________________________________________________ 
+These styles are for the Overview page */
 
 #OverviewSubHeader {
   font-weight: bold;
   text-align: left;
-  color: #ECECEC;
+  color: #3FD2C7;
   font-size: 35px;
 }
 #VisualSubHeader {
   font-weight: bold;
   text-align: left;
-  color: #Def2F1;
+  color: #1A2C42;
   font-size: 25px;
 }
-p {
-  font-family: Segoe UI;
+
+#links{
+  font-family: "Segoe UI";
   display: block;
-  color: #3B8BEB;
+  color: #00458B;
   font-size: 25px;
 }
-#Header {
-  color: #B23850;
-  padding: 10px;
-}
+
+

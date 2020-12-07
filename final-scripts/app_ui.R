@@ -41,6 +41,7 @@ overviewInformation <- tabPanel(
         "Links to Data Sets: "
       ),
       tags$a(
+        id = "links",
         href = "https://data.world/zillow-data/median-list-price", "Median Price"
       ),
       p(
@@ -95,6 +96,40 @@ overviewInformation <- tabPanel(
     )
   )
 )
+conclusions <- tabPanel(
+  title = "Conclusions",
+  tags$div(
+    tags$h2(
+      "The following conclusions can be found from the various visualizations
+      that were provided"
+    ),
+    tags$h4(
+      id = "ColnclusionSubHeader",
+      "Conclusions from Visualization1"
+    ),
+    p(
+      
+    )
+  ),
+  tags$div(
+    tags$h4(
+      id = "ColnclusionSubHeader",
+      "Conclusions from Visualization3"
+    ),
+    p(
+      
+    )
+  ),
+  tags$div(
+    tags$h4(
+      id = "ColnclusionSubHeader",
+      "Conclusions from Visualization3"
+    ),
+    p(
+      
+    )
+  )
+)
 
 
 
@@ -140,7 +175,11 @@ ui <- fluidPage(
     visual2,
     visual3,
     conclusions,
-    position = "static-top"
+    theme = "style.css",
+    tags$style(
+      id = "NavBarHeader",
+      position = "static-top"
+    )
   )
 )
 
