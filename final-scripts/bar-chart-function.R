@@ -5,7 +5,7 @@ library(ggplot2)
 # loads the data set
 city_data <- read.csv(
   "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
-                      stringsAsFactors = FALSE)
+  stringsAsFactors = FALSE)
 
 #function that creates the bar graph
 bar_graph <- function(dataset, year_range, size_range) {
@@ -24,7 +24,7 @@ bar_graph <- function(dataset, year_range, size_range) {
   # selected years
   city_year_averages <- t(city_summary)
   city_year_averages <- cbind(year = rownames(city_year_averages),
-                            city_year_averages)
+                              city_year_averages)
   rownames(city_year_averages) <- NULL
   summary_data <- data.frame(city_year_averages)
   summary_data[["V2"]] <- as.numeric(summary_data$V2)
@@ -34,7 +34,7 @@ bar_graph <- function(dataset, year_range, size_range) {
   labels <- paste(year_range + 2009)
   options(scipen = 10000)
   price_bar_graph <- ggplot(data = year_range_data, aes(x = labels,
-                                                        y = price)) +
+                                y = price, text = paste0(year_range_data))) +
     geom_bar(stat = "identity", fill = "steelblue") +
     theme_minimal() +
     xlab("Year") +
@@ -43,6 +43,6 @@ bar_graph <- function(dataset, year_range, size_range) {
     ggtitle(paste0("Change in House Prices From ", year_range[1] + 2009, " to ",
                    tail((year_range + 2009), n = 1))) +
     theme(plot.title = element_text(hjust = 0.5))
-
+  
   return(price_bar_graph)
 }
