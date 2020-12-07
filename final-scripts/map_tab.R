@@ -18,10 +18,9 @@ location_data <- read.csv("../project-data/uscities.csv",
 # add City, State column to dataset
 location_data <- mutate(location_data, "City, State" = paste(city, state_id))
 
-# join datasets together and add radius column
+# join datasets together
 city_location <- city_data %>%
-  dplyr::left_join(location_data, by = "City, State") %>%
-  mutate(radius = 0.025 * X2017.09)
+  dplyr::left_join(location_data, by = "City, State")
 
 # create main panel for map tab
 map_main_panel <- mainPanel(
@@ -69,7 +68,7 @@ map_server <- function(input, output) {
       addCircles(
         lat = ~lat,
         lng = ~lng,
-        radius = ~radius,
+        radius = ~0.025 * city_location[[input$date]],
         stroke = FALSE,
         label = lapply(point_labels, htmltools::HTML)
       )
