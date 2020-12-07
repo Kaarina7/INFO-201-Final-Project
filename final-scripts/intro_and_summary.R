@@ -107,7 +107,7 @@ overviewInformation <- tabPanel(
 change <- 302140 - 257894
 per_change <- round((((302140 - 257894) / 302140) * 100), 2)
 
-highest_price_cities <- aggregate_table(city_data)
+
 conclusions <- tabPanel(
   title = "Conclusions",
   tags$h2(
