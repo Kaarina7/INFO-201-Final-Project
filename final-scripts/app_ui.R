@@ -144,41 +144,29 @@ ui <- fluidPage(
       
     )
   )
+<<<<<<< Updated upstream
 ),
+=======
+)
+
+>>>>>>> Stashed changes
 conclusions <- tabPanel(
   title = "Conclusions",
-  tags$div(
-    tags$h2(
-      "The following conclusions can be found from the various visualizations
-      that were provided"
-    ),
-    tags$h4(
-      id = "ColnclusionSubHeader",
-      "Conclusions from Visualization1"
-    ),
-    p(
-      
-    )
+  tags$h2(
+    "Conclusions From Our Data "
   ),
-  tags$div(
-    tags$h4(
-      id = "ColnclusionSubHeader",
-      "Conclusions from Visualization3"
-    ),
-    p(
-      
-    )
+  h6(
+    "Economic Insights"
   ),
-  tags$div(
-    tags$h4(
-      id = "ColnclusionSubHeader",
-      "Conclusions from Visualization3"
-    ),
-    p(
-      
-    )
+  h6(
+    "Hosuing Market Insights"
   )
+<<<<<<< Updated upstream
 ),
+=======
+  
+)
+>>>>>>> Stashed changes
 
 
 
@@ -206,10 +194,14 @@ visual3 <- tabPanel(
     )
 ),
 
+<<<<<<< Updated upstream
 conclusions <- tabPanel(
   title = "Conclusions"
 )
 )
+=======
+
+>>>>>>> Stashed changes
 
 
 ui <- fluidPage(
