@@ -59,10 +59,37 @@ map <- tabPanel(
 )
 
 line <- tabPanel(
-  title = "Visual 3",
-  h1("This is a chart")
+  title = "Days Listed Online",
+  sidebarLayout(
+    sidebarPanel(
+      # take inputs here
+      selectInput(input = "location_type", label = "Select a region type",
+                  choices = c("County", "State"), selected = "County"),
+      textInput(inputId = "location_name", label = "Enter the region name",
+                value = "King"),
+      textInput(inputId = "if_state", "If you've entered a county name, enter
+                its state code here:", value = "WA")
+    ),
+    mainPanel(
+      # show graph here
+      p("This line graph looks at the average number of days a house remains
+      listed on Zillow by time, and it breaks the data down by region.
+      It answers questions such as \"When did houses take the longest time to
+      sell?\", and it uses the inputs to the left to decide which region to show.
+      The default below is an example of King County, Washington.",
+        style = "font-size:18px"
+      ),
+      plotOutput("line_graph"),
+      p("The graphs clearly show that over the years, selling a house has
+      become a quicker process. Even more pronounced in the difference in time
+      it takes to sell a house by season. Depending on the location, houses
+      listed on Zillow in Winter and Fall can take nearly twice as long to sell
+      as those listed in Spring and Summer.",
+        style = "font-size:18px"
+      )
+    )
+  )
 )
-
 
 
 overviewInformation <- tabPanel(
@@ -236,7 +263,7 @@ ui <- fluidPage(
     overviewInformation,
     bar,
     map,
-#   line,
+    line,
 #   visual1,
 #   visual2,
 #   visual3,

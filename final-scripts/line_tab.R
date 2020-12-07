@@ -31,7 +31,7 @@ line_ui <- tabPanel(
     sidebarPanel(
       # take inputs here
       selectInput(input = "location_type", label = "Select a region type",
-                  choices = c("County", "State"), selected = "State"),
+                  choices = c("County", "State"), selected = "County"),
       textInput(inputId = "location_name", label = "Enter the region name",
                 value = "King"),
       textInput(inputId = "if_state", "If you've entered a county name, enter
