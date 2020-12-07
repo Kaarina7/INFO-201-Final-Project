@@ -33,10 +33,11 @@ map_main_panel <- mainPanel(
 
 # create side panel for map tab
 map_side_panel <- sidebarPanel(
+  # choose the year to view
   selectInput(
-    "time_range",
-    label = "choose time range",
-    choices = colnames(city_location)
+    "date",
+    label = "Choose the date",
+    choices = colnames(city_location)[6:98]
   )
 )
 
@@ -57,7 +58,6 @@ point_labels <- lapply(seq(nrow(city_location)), function(i) {
   paste0("<p>", city_location[i, "name"], "<p></p>",
          city_location[i, "city"], "</p><p>")
 })
-
 
 map_server <- function(input, output) {
   # render map
