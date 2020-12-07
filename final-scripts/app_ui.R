@@ -125,31 +125,34 @@ ui <- fluidPage(
         "Bar Chart"
       ),
       p(
-        "The first visualization is about ....."
+        "The first visualization is a bar chart that shows how the average 
+        median listing price changed from 2010 - 2017."
       ),
       tags$h3(
         id = "VisualSubHeader",
         "Map"
       ),
       p(
-        "The second visualization is about ....."
+        "The second visualization is an interactive map that shows the different
+        locations of the houses."
       ),
       tags$h3(
         id = "VisualSubHeader",
-        "Line"
+        "Days on Market"
       ),
       p(
-        "The third visualization is about ....."
+        "The third visualization is a line graph about how long the different 
+        houses on Zillow have been on the market for. "
       )
       
     )
   )
-<<<<<<< Updated upstream
+
 ),
-=======
+
 )
 
->>>>>>> Stashed changes
+
 conclusions <- tabPanel(
   title = "Conclusions",
   tags$h2(
@@ -161,12 +164,7 @@ conclusions <- tabPanel(
   h6(
     "Hosuing Market Insights"
   )
-<<<<<<< Updated upstream
-),
-=======
-  
 )
->>>>>>> Stashed changes
 
 
 
@@ -176,7 +174,7 @@ visual1 <- tabPanel(
     id = "Header",
     "This is a chart"
     )
-),
+)
 
 visual2 <- tabPanel(
   title = "Visual 2",
@@ -184,7 +182,7 @@ visual2 <- tabPanel(
     id = "Header",
     "This is a map"
     )
-),
+)
 
 visual3 <- tabPanel(
   title = "Visual 3",
@@ -192,17 +190,7 @@ visual3 <- tabPanel(
     id = "SubHeader",
     "This is a chart"
     )
-),
-
-<<<<<<< Updated upstream
-conclusions <- tabPanel(
-  title = "Conclusions"
 )
-)
-=======
-
->>>>>>> Stashed changes
-
 
 ui <- fluidPage(
   includeCSS("style.css"),

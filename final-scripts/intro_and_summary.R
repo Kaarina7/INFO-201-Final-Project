@@ -80,21 +80,24 @@ overviewInformation <- tabPanel(
         "Bar Chart"
       ),
       p(
-        "The first visualization is about ....."
+        "The first visualization is a bar chart that shows how the average 
+        median listing price changed from 2010 - 2017."
       ),
       tags$h3(
         id = "VisualSubHeader",
         "Map"
       ),
       p(
-        "The second visualization is about ....."
+        "The second visualization is an interactive map that shows the different
+        locations of the houses."
       ),
       tags$h3(
         id = "VisualSubHeader",
         "Line"
       ),
       p(
-        "The third visualization is about ....."
+        "The third visualization is a line graph about how long the different 
+        houses on Zillow have been on the market for."
       )
       
     )
