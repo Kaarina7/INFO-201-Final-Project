@@ -1,9 +1,9 @@
 library(shiny)
-source("./final-scripts/bar_tab.R")
-source("./final-scripts/line_tab.R")
-source("./final-scripts/map_tab.R")
-source("./final-scripts/intro_and_summary.R")
-source("./styles.css") 
+source("bar_tab.R")
+source("line_tab.R")
+source("map_tab.R")
+# source("intro_and_summary.R")
+source("styles.css") 
 overviewInformation <- tabPanel(
   title = "Overview",
   p(
@@ -24,10 +24,33 @@ overviewInformation <- tabPanel(
   )
 )
 bar <- tabPanel(
-  title = "Visual 1",
-  h1("This is a chart")
+  title = "Change in House Prices",
+  h1("Change in House Prices"),
+  p("This bar graph attempts to answer questions about how house prices have
+    changed over the years, and how city size is related to changes in house
+    price. The length encoding (bar graph) was selected because differences
+    between values can be easily seen with length. So it is very effective
+    to see these trends when working with a small range of 
+    noncontinuous x values (years 2010 to 2017)"),
+  sidebarLayout(
+    sidebarPanel(
+      # slider for the range of years
+      sliderInput("range", "Year Range",
+                  min = 2010, max = 2017,
+                  value = c(2010, 2017)),
+      # slider for the size ranks
+      sliderInput("size_rank", "Size Rank (1 is largest population)",
+                  min = 1, max = 7080,
+                  value = c(1, 7080)
+      )
+    ),
+    mainPanel(
+      # outputs the bar graph
+      plotlyOutput(outputId = "bar_graph"),
+      p("")
+    )
+  )
 )
-
 map <- tabPanel(
   title = "Visual 2",
   h1("This is a map")
