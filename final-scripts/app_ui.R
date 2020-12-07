@@ -224,6 +224,8 @@ ui <- fluidPage(
 #   visual2,
 #   visual3,
     conclusions,
+    position = "static-top",
+    inverse = TRUE,
     theme = "style.css",
     tags$style(
       id = "NavBarHeader",

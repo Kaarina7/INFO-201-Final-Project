@@ -29,7 +29,7 @@ bar_ui <- tabPanel(
   )
 )
 
-ui <- fluidPage(
+ui_test <- fluidPage(
   h1(strong("Insert Title")),
   navbarPage(
     title = "Insert Title",
