@@ -103,12 +103,14 @@ overviewInformation <- tabPanel(
     )
   )
 )
+
 change <- 299414 - 238738
 per_change <- round((((change) / 299414) * 100), 2)
 link <- tags$a(
   href = "https://fred.stlouisfed.org/series/MEHOINUSA672N",
   "10%"
 )
+
 
 conclusions <- tabPanel(
   title = "Conclusions",
@@ -131,16 +133,20 @@ conclusions <- tabPanel(
     "the % increase in household income has risen by,", link),
   p("Houses are usualy sold around 3% less than the listing price on average
   While the amount of listings on Zillow is not every house listed on the market
-  ,the general trend holds that prices of houses are increasing at a greater 
+  , the general trend holds that prices of houses are increasing at a greater 
     rate than income"),
-  box(plotlyOutput(outputId = "conclusion1", width = "50%")),
-  h2(
-    "Hosuing Market Insights"
-  ),
-  box(tableOutput("conclusion2")),
+  plotlyOutput(outputId = "conclusion1", width = "75%"),
+  h2("Hosuing Market Insights"),
   p("The table shows that the cities with the highest median house prices. The 
     cities in the top 10 tend to be on the coasts or by the water in mostly 
-    sunny areas."),
+    sunny areas. The top 10 house prices all come from states in the top 5 
+    for population size. This reveals an economic idea about how the scarcity
+    of houses (a fixed supply) with an increasing demand for these houses 
+    increases the price of these homes"),
+  tags$table(
+    id = "Table",
+    tableOutput("conclusion2")
+  )
 )
 
 
@@ -177,12 +183,13 @@ server <- function(input, output) {
       geom_bar(mapping = aes( x = Year, y = List.Price, 
                               text = paste0("Price = $",
                                             round(List.Price, 2))),
-               stat = "identity", fill = "Blue")
-    return(ggplotly(price_change_plot, tooltip = "text"))
+               stat = "identity", fill = "Blue") +
+      ylab("Median Household List Price ($)") + xlab("Date")
+    return(ggplotly(price_change_plot, tooltip = "text")) 
   })
-  output$conclusion2 <- renderrTable({
-    source("aggregate_Table.R")
-    aggregate_table(city_Data)
+  output$conclusion2 <- renderTable({
+    top_10_cities <- aggregate_table(city_data)
+    return(top_10_cities)
   })
 }
 

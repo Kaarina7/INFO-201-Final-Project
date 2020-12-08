@@ -15,24 +15,25 @@ city_data <- read.csv(
 aggregate_table <- function(data) {
   data %>%
     #Getting all the year columns and the Region Name column
-    select(matches("201|RegionName")) %>%
+    select(matches("201|RegionName|State")) %>%
     #Using Gather to Make Month Column have old column values as rows
-    gather(key = "month", value = "list_price", -RegionName) %>%
+    gather(key = "month", value = "list_price", -RegionName, -State) %>%
     group_by(RegionName) %>%
     filter(
       !is.na(list_price)
     ) %>%
     mutate(
-      list_price = as.numeric(list_price)
+      list_price = as.numeric(list_price),
+      RegionName = paste0(RegionName," , ", State)
     ) %>%
     rename(
       Region.Name = RegionName,
-      List.Price = list_price
+      List.Price = list_price,
+      state = State
     ) %>%
     summarise(
-      List.Price = mean(List.Price, na.rm = TRUE)
+      List.Price = mean(List.Price, na.rm = TRUE),
     ) %>%
     arrange(desc(List.Price)) %>%
-    top_n(15)
+    top_n(10)
 }
-
