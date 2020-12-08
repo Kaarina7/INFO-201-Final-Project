@@ -5,7 +5,7 @@ library(ggplot2)
 library(plotly)
 source("line_tab.R")
 source("map_tab.R")
-source("styles.css") 
+source("styles.css")
 source("aggregate_Table.R")
 
 overviewInformation <- tabPanel(
