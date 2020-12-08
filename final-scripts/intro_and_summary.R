@@ -103,9 +103,12 @@ overviewInformation <- tabPanel(
     )
   )
 )
-change <- 302140 - 257894
-per_change <- round((((302140 - 257894) / 302140) * 100), 2)
-
+change <- 299414 - 238738
+per_change <- round((((change) / 299414) * 100), 2)
+link <- tags$a(
+  href = "https://fred.stlouisfed.org/series/MEHOINUSA672N",
+  "10%"
+)
 
 conclusions <- tabPanel(
   title = "Conclusions",
@@ -121,8 +124,11 @@ conclusions <- tabPanel(
       "Economic Conclusions"
     )
   ),
-  p(paste0("The price in 2017 was $287,459 and in 2010 was $257,894. The price 
-    increases by $", change, " which is an increase of ", per_change, "%")),
+  p(paste0("The price in 2017 was $299414 and at its lowest point in 2011 was 
+  $238738. The price increases by $", change,
+           " which is an increase of ", per_change, "%")),
+  p("In the same time that the hosuing price has increased by ", per_change,
+    "the % increase in household income has risen by,", link),
   plotlyOutput(outputId = "conclusion1", width = "100%"),
   h2(
     "Hosuing Market Insights"
@@ -154,10 +160,10 @@ server <- function(input, output) {
   output$conclusion1 <- renderPlotly({
     source("aggregate_Table.R")
     change_in_price <- city_data %>%
-      select(X2010.01, X2017.09) %>%
+      select(X2011.01, X2017.09) %>%
       drop_na() %>%
       summarise(
-        Jan.2010 = mean(X2010.01),
+        Jan.2011 = mean(X2011.01),
         Sep.2017 = mean(X2017.09)
       ) %>%
       gather(key = "Year", value = "List.Price")
