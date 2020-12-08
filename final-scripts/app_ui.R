@@ -208,6 +208,7 @@ conclusions <- tabPanel(
     rate than income"),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
   h2("Hosuing Market Insights"),
+  h3("Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The 
     cities in the top 10 tend to be on the coasts or by the water in mostly 
     sunny areas. The top 10 house prices all come from states in the top 5 
@@ -217,7 +218,17 @@ conclusions <- tabPanel(
   tags$table(
     id = "Table",
     tableOutput("conclusion2")
-  )
+  ),
+  h3("Days on Zillow for the USA as a whole"),
+  plotOutput("conclusion3"),
+  p("The above graph shows the average days on zillow for every month from
+    January 2010 to August 2017."),
+  p("The trend line shows that the # of days a house
+    is on Zillow has significantly decreased, 150 to around 80. This is a result
+    of either increased popularity of Zillow to sell a house or increase in
+    houses bought."),
+  p("The line also shows a dip in each year around the summer months showing
+    that new houses are bought quicker in the summer.")
 )
 
 
@@ -238,7 +249,7 @@ ui <- fluidPage(
     position = "static-top",
     inverse = TRUE,
     theme = "style.css",
-    tags$style(
+    tags$style( 
       id = "NavBarHeader",
       position = "static-top"
     )

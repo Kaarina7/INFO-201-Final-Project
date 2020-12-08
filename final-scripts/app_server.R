@@ -99,8 +99,29 @@ server <- function(input, output) {
   })
   
   output$conclusion2 <- renderTable({
-    source("aggregate_Table.R")
-    aggregate_table(city_data)
+    top_10_cities <- aggregate_table(city_data)
+    return(top_10_cities)
+  })
+  
+  output$conclusion3 <- renderPlot({
+    days_listed_trend <- days_listed_state %>%
+      select(matches("201|RegionName")) %>%
+      #Using Gather to Make Month Column have old column values as rows
+      gather(key = "month", value = "Days", -RegionName) %>%
+      group_by(month) %>%
+      filter(!is.na(Days)) %>%
+      mutate(
+        Days = as.numeric(Days)
+      ) %>%
+      summarise(
+        Days = mean(Days, na.rm = TRUE)
+      )
+    return(ggplot(days_listed_trend, aes(x = month, y = Days,
+                                         group = 1)) + geom_line() +
+             labs(title = "Average Days a Home is Listed on Zillow in the US") +
+             geom_point() +
+             theme(axis.text.x = element_text(angle = 90)) +
+             geom_line(color = "blue"))
   })
   
   output$line_graph <- renderPlot({

@@ -137,6 +137,7 @@ conclusions <- tabPanel(
     rate than income"),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
   h2("Hosuing Market Insights"),
+  h6("Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The 
     cities in the top 10 tend to be on the coasts or by the water in mostly 
     sunny areas. The top 10 house prices all come from states in the top 5 
@@ -146,7 +147,17 @@ conclusions <- tabPanel(
   tags$table(
     id = "Table",
     tableOutput("conclusion2")
-  )
+  ),
+  h6("Days on Zillow for the USA as a whole"),
+  plotOutput("conclusion3"),
+  p("The above graph shows the average days on zillow for every month from
+    January 2010 to August 2017."),
+  p("The trend line shows that the # of days a house
+    is on Zillow has significantly decreased, 150 to around 80. This is a result
+    of either increased popularity of Zillow to sell a house or increase in
+    houses bought."),
+  p("The line also shows a dip in each year around the summer months showing
+    that new houses are bought quicker in the summer.")
 )
 
 
@@ -191,6 +202,27 @@ server <- function(input, output) {
     top_10_cities <- aggregate_table(city_data)
     return(top_10_cities)
   })
+  output$conclusion3 <- renderPlot({
+    days_listed_trend <- days_listed_state %>%
+      select(matches("201|RegionName")) %>%
+      #Using Gather to Make Month Column have old column values as rows
+      gather(key = "month", value = "Days", -RegionName) %>%
+      group_by(month) %>%
+      filter(!is.na(Days)) %>%
+      mutate(
+        Days = as.numeric(Days)
+      ) %>%
+      summarise(
+        Days = mean(Days, na.rm = TRUE)
+      )
+    return(ggplot(days_listed_trend, aes(x = month, y = Days,
+                                  group = 1)) + geom_line() +
+      labs(title = "Average Days a Home is Listed on Zillow in the US") +
+      geom_point() +
+      theme(axis.text.x = element_text(angle = 90)) +
+      geom_line(color = "blue"))
+  })
+  
 }
 
 
