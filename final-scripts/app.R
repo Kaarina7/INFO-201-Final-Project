@@ -3,7 +3,7 @@ source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
-source("styles.css")
+source("style.css")
 
 
 source("app_ui.R")

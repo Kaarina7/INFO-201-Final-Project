@@ -3,7 +3,7 @@ source("bar_tab.R")
 source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
-source("styles.css")
+source("style.css")
 
 server <- function(input, output) {
   # outputs the bar chart given selected year and size range
@@ -171,7 +171,7 @@ server <- function(input, output) {
              y = "Number of Days") +
         scale_x_discrete(labels = season_labels) + geom_point() +
         theme(axis.text.x = element_text(angle = 90)) +
-        geom_line(color = "blue")
+        geom_line(color = "blue") + tooltips(.data[[region_name]])
     }
 
     return(

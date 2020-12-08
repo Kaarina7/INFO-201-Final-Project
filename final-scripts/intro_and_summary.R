@@ -5,7 +5,7 @@ library(ggplot2)
 library(plotly)
 source("line_tab.R")
 source("map_tab.R")
-source("styles.css")
+source("style.css")
 source("aggregate_Table.R")
 
 overviewInformation <- tabPanel(
@@ -226,4 +226,3 @@ server <- function(input, output) {
 }
 
 
-shinyApp(ui = uiui, server = server)
