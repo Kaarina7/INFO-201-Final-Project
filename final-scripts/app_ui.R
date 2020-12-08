@@ -94,35 +94,6 @@ line <- tabPanel(
 
 overviewInformation <- tabPanel(
   title = "Overview",
-  p(
-    "We are business, economics, and computational finance majors, and we felt 
-    that the field of housing markets intersected all of our major-related 
-    interests, so we chose to focus on it for our project. The data sets we 
-    decided to use come from Zillow. Zillow regularly gathers information about 
-    all of the homes listed for sale on their website and makes it publicly 
-    available, and we decided to make use of several pieces of it. 
-    The first lists the median housing prices across the nation according to 
-    different regional categories. It can be used to answer questions about how 
-    house prices vary by geographic region, as well as how they've changed over 
-    the past ten years. The second lists the average number of days a listing 
-    stays on Zillow by region. This can be used to examine changes in the speed 
-    with which houses sell in different areas."
-  ),
-  tags$div(
-    id = "OverviewSection1",
-    tags$h3(
-      id = "SubHeader",
-      "Choice of Domain: "
-    ),
-    p(
-      "We are business, economics, and computational finance majors, and we felt 
-    that the field of housing markets intersected all of our major-related 
-    interests, so we chose to focus on it for our project. "),
-    tags$h3(
-      id = "SubHeader",
-      "Our Data sets: "
-    )
-  ),
   tags$body(
     id = "Body",
     tags$div(
@@ -213,44 +184,39 @@ overviewInformation <- tabPanel(
 )
 
 
+change <- 299414 - 238738
+per_change <- round((((change) / 299414) * 100), 2)
+link <- tags$a(
+  href = "https://fred.stlouisfed.org/series/MEHOINUSA672N",
+  "10%"
+)
+
 conclusions <- tabPanel(
   title = "Conclusions",
+  tags$h2(
+    "Conclusions From Our Data "
+  ),
+  tags$div(
+    tags$h4(
+      id = "ColncldusionSubHeader",
+      "Conclusions from Visualization3"
+    ),
+    h2(
+      "Economic Conclusions"
+    )
+  ),
+  p(paste0("The price in 2017 was $299414 and at its lowest point in 2011 was 
+  $238738. The price increases by $", change,
+           " which is an increase of ", per_change, "%")),
+  p("In the same time that the hosuing price has increased by ", per_change,
+    "the % increase in household income has risen by,", link),
+  plotlyOutput(outputId = "conclusion1", width = "100%"),
   h2(
-  "Conclusions From Our Data "
-  ),
-  p(
-    "Economic Insights"
-  ),
-  p(
     "Hosuing Market Insights"
   )
 )
 
 
-
-visual1 <- tabPanel(
-  title = "Visual 1",
-  tags$h1(
-    id = "Header",
-    "This is a chart"
-  )
-)
-
-visual2 <- tabPanel(
-  title = "Visual 2",
-  tags$h1(
-    id = "Header",
-    "This is a map"
-  )
-)
-
-visual3 <- tabPanel(
-  title = "Visual 3",
-  tags$h1(
-    id = "SubHeader",
-    "This is a chart"
-  )
-)
 
 ui <- fluidPage(
   includeCSS("style.css"),
@@ -264,9 +230,6 @@ ui <- fluidPage(
     bar,
     map,
     line,
-#   visual1,
-#   visual2,
-#   visual3,
     conclusions,
     position = "static-top",
     inverse = TRUE,
