@@ -4,7 +4,7 @@ source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
 source("styles.css")
-library(lintr)
+
 server <- function(input, output) {
   # outputs the bar chart given selected year and size range
   output$bar_graph <- renderPlotly({
@@ -179,4 +179,3 @@ server <- function(input, output) {
     )
   })
 }
-lint("app_server.R")

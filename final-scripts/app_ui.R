@@ -1,5 +1,4 @@
 library(shiny)
-library(lintr)
 source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
@@ -257,4 +256,3 @@ ui <- fluidPage(
     )
   )
 )
-lint("app_ui.R")
