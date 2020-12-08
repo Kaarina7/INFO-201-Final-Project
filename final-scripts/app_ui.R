@@ -210,10 +210,16 @@ conclusions <- tabPanel(
            " which is an increase of ", per_change, "%")),
   p("In the same time that the hosuing price has increased by ", per_change,
     "the % increase in household income has risen by,", link),
-  plotlyOutput(outputId = "conclusion1", width = "100%"),
+  p("Houses are usualy sold around 3% less than the listing price on average
+  While the amount of listings on Zillow is not every house listed on the market
+  ,the general trend holds that prices of houses are increasing at a greater 
+    rate than income"),
+  box(plotlyOutput(outputId = "conclusion1", width = "50%")),
   h2(
     "Hosuing Market Insights"
-  )
+  ),
+  box(tableOutput("conclusion2")),
+  p(),
 )
 
 

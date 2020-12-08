@@ -98,6 +98,11 @@ server <- function(input, output) {
     return(ggplotly(price_change_plot, tooltip = "text"))
   })
   
+  output$conclusion2 <- renderrTable({
+    source("aggregate_Table.R")
+    aggregate_table(city_Data)
+  })
+  
   output$line_graph <- renderPlot({
     line_graph <- function(region_type, region_name, state_code = NULL) {
       # deal with user input and use it to select the proper dataset

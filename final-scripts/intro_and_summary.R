@@ -113,7 +113,7 @@ link <- tags$a(
 conclusions <- tabPanel(
   title = "Conclusions",
   tags$h2(
-      "Conclusions From Our Data "
+    "Conclusions From Our Data "
   ),
   tags$div(
     tags$h4(
@@ -129,10 +129,18 @@ conclusions <- tabPanel(
            " which is an increase of ", per_change, "%")),
   p("In the same time that the hosuing price has increased by ", per_change,
     "the % increase in household income has risen by,", link),
-  plotlyOutput(outputId = "conclusion1", width = "100%"),
+  p("Houses are usualy sold around 3% less than the listing price on average
+  While the amount of listings on Zillow is not every house listed on the market
+  ,the general trend holds that prices of houses are increasing at a greater 
+    rate than income"),
+  box(plotlyOutput(outputId = "conclusion1", width = "50%")),
   h2(
     "Hosuing Market Insights"
-  )
+  ),
+  box(tableOutput("conclusion2")),
+  p("The table shows that the cities with the highest median house prices. The 
+    cities in the top 10 tend to be on the coasts or by the water in mostly 
+    sunny areas."),
 )
 
 
@@ -145,9 +153,6 @@ uiui <- fluidPage(
   navbarPage(
     title = "Navigation Bar",
     overviewInformation,
-    # visual1,
-    # visual2,
-    # visual3,
     conclusions,
     theme = "style.css",
     tags$style(
@@ -174,6 +179,10 @@ server <- function(input, output) {
                                             round(List.Price, 2))),
                stat = "identity", fill = "Blue")
     return(ggplotly(price_change_plot, tooltip = "text"))
+  })
+  output$conclusion2 <- renderrTable({
+    source("aggregate_Table.R")
+    aggregate_table(city_Data)
   })
 }
 
