@@ -15,7 +15,7 @@ days_listed_state <- subset(days_listed_state,
 days_listed_state[["RegionName"]] <- tolower(days_listed_state[["RegionName"]])
 
 days_listed_county <-
-  read.csv("../project-data/days-on-zillow/daysonzillow_public_county.csv",
+  read.csv("project-data/days-on-zillow/daysonzillow_public_county.csv",
            stringsAsFactors = FALSE)
 united_states <- days_listed_county[1, ]
 days_listed_county <- days_listed_county[-1, ]
@@ -85,7 +85,7 @@ line_server <- function(input, output) {
       
       # format labels for use in graph
       season_labels <- paste(rep(c("Winter\n", "Spring\n", "Summer\n",
-                                   "Fall\n"), each = 3), rep(2010:2017, each = 12))
+                               "Fall\n"), each = 3), rep(2010:2017, each = 12))
       for (n in 1:96) {
         if (n %% 3 != 1) {
           season_labels[n] <- ""

@@ -12,7 +12,7 @@ city_data <- read.csv(
 city_data <- mutate(city_data, "City, State" =  paste(RegionName, State))
 
 # read in dataset with latitude and longitude information
-location_data <- read.csv("../project-data/uscities.csv",
+location_data <- read.csv("project-data/uscities.csv",
                           stringsAsFactors = FALSE)
 
 # add City, State column to dataset
