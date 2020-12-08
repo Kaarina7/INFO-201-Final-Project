@@ -8,7 +8,8 @@ source("styles.css")
 
 bar <- tabPanel(
   title = "Change in House Prices",
-  h1("Change in House Prices"),
+  h1( id = "OverviewSubHeader",
+    "Change in House Prices"),
   p("This bar graph attempts to answer questions about how house prices have
     changed over the years, and how city size is related to changes in house
     price. The length encoding (bar graph) was selected because differences
@@ -37,7 +38,9 @@ bar <- tabPanel(
 
 map <- tabPanel(
   title = "House Prices vs. Time",
-  h1("Geographic Change in House Prices vs. Time"),
+  h1(
+    id = "OverviewSubHeader",
+    "Geographic Change in House Prices vs. Time"),
   sidebarLayout(
     mainPanel(
       p("This map helps answer the question of how median house prices have
@@ -59,6 +62,10 @@ map <- tabPanel(
 
 line <- tabPanel(
   title = "Days Listed Online",
+  h1(
+    id = "OverviewSubHeader",
+    "Days Listed Online"
+  ),
   sidebarLayout(
     sidebarPanel(
       # take inputs here
@@ -194,22 +201,30 @@ link <- tags$a(
 
 conclusions <- tabPanel(
   title = "Conclusions",
-  tags$h2(
+  tags$h1(
+    id = "OverviewSubHeader",
     "Conclusions From Our Data "
   ),
-  h2("Economic Conclusions"),
+  h2(
+    id = "VisualSubHeader",
+    "Economic Conclusions"
+    ),
   p(paste0("The price in 2017 was $299414 and at its lowest point in 2011 was
   $238738. The price increases by $", change,
            " which is an increase of ", per_change, "%")),
   p("In the same time that the hosuing price has increased by ", per_change,
-    "the % increase in household income has risen by,", link),
-  p("Houses are usualy sold around 3% less than the listing price on average
+    "the % increase in household income has risen by,", link, 
+    "*(Click for source)"),
+  p("Houses are usualy sold around 3% less than the listing price on average.
   While the amount of listings on Zillow is not every house listed on the market
   , the general trend holds that prices of houses are increasing at a greater
     rate than income"),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
-  h2("Hosuing Market Insights"),
-  h3("Cities with Highest List Price"),
+  h2(
+    id = "VisualSubHeader",
+    "Hosuing Market Insights"
+    ),
+  h4("Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The
     cities in the top 10 tend to be on the coasts or by the water in mostly
     sunny areas. The top 10 house prices all come from states in the top 5
@@ -220,7 +235,7 @@ conclusions <- tabPanel(
     id = "Table",
     tableOutput("conclusion2")
   ),
-  h3("Days on Zillow for the USA as a whole"),
+  h4("Days on Zillow for the USA as a whole"),
   plotOutput("conclusion3"),
   p("The above graph shows the average days on zillow for every month from
     January 2010 to August 2017."),

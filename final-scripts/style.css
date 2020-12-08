@@ -50,8 +50,11 @@ These styles are for the Overview page */
 }
 #VisualSubHeader {
   text-align: left;
-  color: #DCD0C0;
+  color: #333A56;
   font-size: 25px;
+  font-weight: bold;
+  webkit-text-stroke-color: black;
+  webkit-text-stroke-width: 5px;
 }
 
 #links{
