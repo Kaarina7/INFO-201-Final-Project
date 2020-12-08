@@ -24,7 +24,7 @@ aggregate_table <- function(data) {
     ) %>%
     mutate(
       list_price = as.numeric(list_price),
-      RegionName = paste0(RegionName," , ", State)
+      RegionName = paste0(RegionName, " , ", State)
     ) %>%
     rename(
       Region.Name = RegionName,
