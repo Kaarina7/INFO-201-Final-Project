@@ -20,7 +20,7 @@ bar_graph <- function(dataset, year_range, size_range) {
                    X2016.01, X2017.01), all_vars(!is.na(.))) %>%
     summarize_all(mean) %>%
     mutate(across(where(is.numeric), round, 0))
-  # makes summary data easier for ggplot to read and filters by 
+  # makes summary data easier for ggplot to read and filters by
   # selected years
   city_year_averages <- t(city_summary)
   city_year_averages <- cbind(year = rownames(city_year_averages),
@@ -33,13 +33,13 @@ bar_graph <- function(dataset, year_range, size_range) {
 
   labels <- paste(year_range + 2009)
   options(scipen = 10000)
-  
+
   # creates the bar graph using filtered data, and adjusts labels based
   # on selected inputs from the ui
   fig <- plot_ly(year_range_data,
-                 x = ~labels, y = ~price, type = 'bar', text = "",
-                 marker = list(color = 'rgb(158,202,225)',
-                               line = list(color = 'rgb(8,48,107)',
+                 x = ~labels, y = ~price, type = "bar", text = "",
+                 marker = list(color = "rgb(158,202,225)",
+                               line = list(color = "rgb(8,48,107)",
                                            width = 1.5)))
   fig <- fig %>% layout(title = paste0("House Price Data from ",
                                        (year_range[1] + 2009),
@@ -48,6 +48,6 @@ bar_graph <- function(dataset, year_range, size_range) {
                         xaxis = list(title = "Year"),
                         yaxis = list(title =
                                        "Average Median Listed House Price"))
-  
+
   return(fig)
 }
