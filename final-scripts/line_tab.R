@@ -5,7 +5,7 @@ library(dplyr)
 library(stringr)
 
 days_listed_state <-
-  read.csv("../project-data/days-on-zillow/daysonzillow_public_state.csv",
+  read.csv("project-data/days-on-zillow/daysonzillow_public_state.csv",
            stringsAsFactors = FALSE)
 names(days_listed_state) <- as.matrix(days_listed_state[1, ])
 days_listed_state <- days_listed_state[-2:-1, ]

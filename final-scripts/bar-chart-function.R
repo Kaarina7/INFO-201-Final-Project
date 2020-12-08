@@ -4,7 +4,7 @@ library(ggplot2)
 library(plotly)
 # loads the data set
 city_data <- read.csv(
-  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+  "project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
   stringsAsFactors = FALSE)
 
 #function that creates the bar graph

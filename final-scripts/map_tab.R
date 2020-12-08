@@ -5,7 +5,7 @@ library("dplyr")
 
 # read in dataset
 city_data <- read.csv(
-  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+  "project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
   stringsAsFactors = FALSE)
 
 # add City, State column to dataset

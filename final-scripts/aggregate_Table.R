@@ -9,7 +9,7 @@ library(lintr)
 # neighborhood, and Zip code. The data can be applied to show the average list
 # price by region over the course of 7 years. It displays the highest 10 prices.
 city_data <- read.csv(
-  "../project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
+  "project-data/median-listing-price/City_MedianListingPrice_AllHomes.csv",
   stringsAsFactors = FALSE)
 
 aggregate_table <- function(data) {

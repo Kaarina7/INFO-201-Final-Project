@@ -1,0 +1,12 @@
+name: final-deliverable
+title: final-deliverable
+username:
+account: benagilman
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3370336
+bundleId: 3958336
+url: https://benagilman.shinyapps.io/final-deliverable/
+when: 1607399697.51592
+asMultiple: FALSE
+asStatic: FALSE
