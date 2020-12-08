@@ -100,7 +100,7 @@ server <- function(input, output) {
   
   output$conclusion2 <- renderTable({
     source("aggregate_Table.R")
-    aggregate_table(city_Data)
+    aggregate_table(city_data)
   })
   
   output$line_graph <- renderPlot({

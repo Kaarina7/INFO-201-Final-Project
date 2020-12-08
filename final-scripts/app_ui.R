@@ -196,15 +196,7 @@ conclusions <- tabPanel(
   tags$h2(
     "Conclusions From Our Data "
   ),
-  tags$div(
-    tags$h4(
-      id = "ColncldusionSubHeader",
-      "Conclusions from Visualization3"
-    ),
-    h2(
-      "Economic Conclusions"
-    )
-  ),
+  h2("Economic Conclusions"),
   p(paste0("The price in 2017 was $299414 and at its lowest point in 2011 was 
   $238738. The price increases by $", change,
            " which is an increase of ", per_change, "%")),
