@@ -7,7 +7,7 @@ bar_ui <- tabPanel(
     changed over the years, and how city size is related to changes in house
     price. The length encoding (bar graph) was selected because differences
     between values can be easily seen with length. So it is very effective
-    to see these trends when working with a small range of 
+    to see these trends when working with a small range of
     noncontinuous x values (years 2010 to 2017)"),
   sidebarLayout(
     sidebarPanel(
