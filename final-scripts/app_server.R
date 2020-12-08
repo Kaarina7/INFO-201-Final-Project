@@ -98,7 +98,7 @@ server <- function(input, output) {
     return(ggplotly(price_change_plot, tooltip = "text"))
   })
   
-  output$conclusion2 <- renderrTable({
+  output$conclusion2 <- renderTable({
     source("aggregate_Table.R")
     aggregate_table(city_Data)
   })
