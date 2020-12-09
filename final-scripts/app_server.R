@@ -1,5 +1,5 @@
 library(shiny)
-source("bar_tab.R")
+source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
@@ -126,4 +126,3 @@ server <- function(input, output) {
   })
 
 }
-

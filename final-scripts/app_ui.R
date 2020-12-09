@@ -8,7 +8,7 @@ source("style.css")
 
 bar <- tabPanel(
   title = "Change in House Prices",
-  h1( id = "OverviewSubHeader",
+  h1(id = "OverviewSubHeader",
     "Change in House Prices"),
   p("This bar graph attempts to answer questions about how house prices have
     changed over the years, and how city size is related to changes in house
@@ -213,7 +213,7 @@ conclusions <- tabPanel(
   $238738. The price increases by $", change,
            " which is an increase of ", per_change, "%")),
   p("In the same time that the hosuing price has increased by ", per_change,
-    "the % increase in household income has risen by,", link, 
+    "the % increase in household income has risen by,", link,
     "*(Click for source)"),
   p("Houses are usualy sold around 3% less than the listing price on average.
   While the amount of listings on Zillow is not every house listed on the market
