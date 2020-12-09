@@ -54,8 +54,7 @@ server <- function(input, output) {
 
       # format labels for use in graph
       season_labels <- paste(rep(c("Winter\n", "Spring\n", "Summer\n",
-                                   "Fall\n"), each = 3), rep(2010:2017,
-                                                             each = 12))
+                        "Fall\n"), each = 3), rep(2010:2017, each = 12))
       for (n in 1:96) {
         if (n %% 3 != 1) {
           season_labels[n] <- ""
@@ -63,8 +62,8 @@ server <- function(input, output) {
       }
 
       # make the graph
-      ggplot(relevant_data, aes(x = Dates, y = .data[[region_name]],
-                  group = 1, text = .data[[region_name]])) + geom_line() +
+      ggplot(relevant_data, aes(x = Dates, y = .data[[region_name]], group = 1,
+             text = paste0(.data[[region_name]], " days"))) + geom_line() +
         labs(title = paste0("Average Days a Home is Listed on Zillow in ",
         str_to_title(region_name), ifelse(is.null(state_code), " State",
         paste(" County,", toupper(state_code)))), y = "Number of Days") +
@@ -73,6 +72,7 @@ server <- function(input, output) {
         geom_line(color = "blue")
     }
 
+    # make the plot interactive
     line_plot <- ggplotly(line_graph(input$location_type, input$location_name,
                             input$if_state), tooltip = "text")
     return(line_plot)
@@ -105,7 +105,7 @@ server <- function(input, output) {
   output$conclusion3 <- renderPlot({
     days_listed_trend <- days_listed_state %>%
       select(matches("201|RegionName")) %>%
-      #Using Gather to Make Month Column have old column values as rows
+      # Using Gather to Make Month Column have old column values as rows
       gather(key = "month", value = "Days", -RegionName) %>%
       group_by(month) %>%
       filter(!is.na(Days)) %>%
