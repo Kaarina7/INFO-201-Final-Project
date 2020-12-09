@@ -98,7 +98,6 @@ line <- tabPanel(
     )
   )
 )
-
 # This is the summary section of the page
 overview_information <- tabPanel(
   title = "Overview",
@@ -106,6 +105,7 @@ overview_information <- tabPanel(
     id = "Body",
     tags$div(
       id = "OverviewSection1",
+      img(src = "zillow_logo.png"),
       # Explain the domain
       tags$h3(
         id = "OverviewSubHeader",
