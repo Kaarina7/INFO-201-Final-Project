@@ -20,10 +20,7 @@ p {
   color: #B23850;
   padding: 10px;
 }
-#HighestCities {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 /* _____________________________________________________________________________
 This is for the navbar */
 .navbar {
@@ -63,4 +60,9 @@ These styles are for the Overview page */
   font-weight: bold;
 }
 
-
+/*______________________________________________________________________________ 
+These styles are for the Overview page */
+#HighestCities {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

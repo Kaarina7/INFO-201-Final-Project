@@ -209,16 +209,19 @@ conclusions <- tabPanel(
     id = "VisualSubHeader",
     "Economic Conclusions"
     ),
-  p(paste0("The price in 2017 was $299414 and at its lowest point in 2011 was
-  $238738. The price increases by $", change,
-           " which is an increase of ", per_change, "%")),
-  p("In the same time that the hosuing price has increased by ", per_change,
-    "the % increase in household income has risen by,", link,
-    "*(Click for source)"),
-  p("Houses are usualy sold around 3% less than the listing price on average.
-  While the amount of listings on Zillow is not every house listed on the market
-  , the general trend holds that prices of houses are increasing at a greater
-    rate than income"),
+  tags$ul(
+    tags$li(p(paste0("The median housing price in 2017 was $299414 and at its 
+    lowest year, 2011, was $238738. The price increases by $", change,
+                   " which is an increase of ", per_change, "%"))),
+    tags$li(p("In the same time that the hosuing price has increased by ",
+            per_change, "the % increase in household income has risen by,",
+            link, "*(Click for source)")),
+    tags$li(p("Houses are usualy sold around 3% less than the listing price on 
+    average. While the amount of listings on Zillow is not every house listed 
+    on the market, the general trend holds that prices of houses are increasing 
+    at a greater rate than income posing a problem for Americans to pay for 
+              homes. ")),
+  ),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
   h2(
     id = "VisualSubHeader",
@@ -239,16 +242,19 @@ conclusions <- tabPanel(
   ),
   h4( 
     id = "conclusionSubheader",
-    "Days on Zillow for the USA as a whole"),
-  plotOutput("conclusion3"),
+    "Days on Zillow for the USA as a whole"
+    ),
   p("The above graph shows the average days on zillow for every month from
     January 2010 to August 2017."),
-  p("The trend line shows that the # of days a house
+  tags$ul(
+    tags$li(p("The trend line shows that the # of days a house
     is on Zillow has significantly decreased, 150 to around 80. This is a result
     of either increased popularity of Zillow to sell a house or increase in
-    houses bought."),
-  p("The line also shows a dip in each year around the summer months showing
-    that new houses are bought quicker in the summer.")
+    houses bought.")),
+    tags$li(p("The line also shows a dip in each year around the summer months 
+    showing that new houses are bought quicker in the summer.")),
+  plotOutput("conclusion3")
+  )
 )
 
 
