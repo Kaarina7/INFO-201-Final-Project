@@ -194,8 +194,8 @@ server <- function(input, output) {
       ylab("Median Household List Price ($)") + xlab("Date")
     return(ggplotly(price_change_plot, tooltip = "text"))
   })
-  output$conclusion2 <- renderTable({
-    top_10_cities <- aggregate_table(city_data)
+  output$conclusion2 <- renderDataTable({
+    top_10_cities <- datatable(aggregate_table(city_data))
     return(top_10_cities)
   })
   output$conclusion3 <- renderPlot({
@@ -219,3 +219,5 @@ server <- function(input, output) {
       geom_line(color = "blue"))
   })
 }
+a <- table(aggregate_table(city_data))
+         

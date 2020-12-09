@@ -20,7 +20,10 @@ p {
   color: #B23850;
   padding: 10px;
 }
-
+#HighestCities {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 /* _____________________________________________________________________________
 This is for the navbar */
 .navbar {
@@ -29,16 +32,7 @@ This is for the navbar */
   font-family: "Segoe UI";
   color: white;
 }
-.tab-panel{
-  background-color:#BE2F29;
-  color: white;
-}
-.navbar-default .navbar-brand {
-  color: black;
-}
-.navbar-default .navbar-nav {
-  color: black;
-}
+
 /*______________________________________________________________________________ 
 These styles are for the Overview page */
 
@@ -53,8 +47,6 @@ These styles are for the Overview page */
   color: #333A56;
   font-size: 25px;
   font-weight: bold;
-  webkit-text-stroke-color: black;
-  webkit-text-stroke-width: 5px;
 }
 
 #links{
@@ -64,16 +56,11 @@ These styles are for the Overview page */
   font-size: 25px;
 }
 
-/*______________________________________________________________________________ 
-Table Style */
-#Table {
-  border: 3px solid blue;
-  border-collapse: collapse;
-  width: 75%;
-  text-align: center;
-  padding: 10px;
-  border-bottom: 1px solid blue;
-  
+#conclusionSubheader {
+  text-align: left;
+  color: #003060;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 

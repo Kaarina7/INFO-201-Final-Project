@@ -1,4 +1,5 @@
 library(shiny)
+library(DT)
 source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
@@ -223,18 +224,22 @@ conclusions <- tabPanel(
     id = "VisualSubHeader",
     "Hosuing Market Insights"
     ),
-  h4("Cities with Highest List Price"),
+  div(
+    id = "HighestCities",
+  h4(
+    id = "conclusionSubheader",
+    "Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The
     cities in the top 10 tend to be on the coasts or by the water in mostly
     sunny areas. The top 10 house prices all come from states in the top 5
     for population size. This reveals an economic idea about how the scarcity
     of houses (a fixed supply) with an increasing demand for these houses
-    increases the price of these homes"),
-  tags$table(
-    id = "Table",
-    tableOutput("conclusion2")
+    increases the price of these homes."),
+  dataTableOutput("conclusion2", width = "75%"),
   ),
-  h4("Days on Zillow for the USA as a whole"),
+  h4( 
+    id = "conclusionSubheader",
+    "Days on Zillow for the USA as a whole"),
   plotOutput("conclusion3"),
   p("The above graph shows the average days on zillow for every month from
     January 2010 to August 2017."),
