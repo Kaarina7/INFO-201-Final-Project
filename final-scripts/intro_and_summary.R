@@ -5,7 +5,6 @@ library(ggplot2)
 library(plotly)
 source("line_tab.R")
 source("map_tab.R")
-source("style.css")
 source("aggregate_Table.R")
 
 overview_information <- tabPanel(
@@ -167,7 +166,7 @@ uiui <- fluidPage(
   ),
   navbarPage(
     title = "Navigation Bar",
-    overviewInformation,
+    overview_information,
     conclusions,
     theme = "style.css",
     tags$style(

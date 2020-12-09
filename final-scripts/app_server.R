@@ -3,7 +3,6 @@ source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
-source("style.css")
 
 server <- function(input, output) {
   # outputs the bar chart given selected year and size range
