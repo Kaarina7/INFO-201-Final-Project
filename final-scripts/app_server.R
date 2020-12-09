@@ -1,4 +1,5 @@
 library(shiny)
+library(plotly)
 source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
@@ -25,9 +26,9 @@ server <- function(input, output) {
       )
   })
 
-  output$line_graph <- renderPlot({
+  output$line_graph <- renderPlotly({
     line_graph <- function(region_type, region_name, state_code = NULL) {
-      # deal with user input and use it to select the proper dataset
+      # deal with user input and use it to select the proper data set
       region_type <- tolower(region_type)
       region_name <- tolower(region_name)
       if (region_type == "state") {
@@ -63,20 +64,18 @@ server <- function(input, output) {
 
       # make the graph
       ggplot(relevant_data, aes(x = Dates, y = .data[[region_name]],
-                                group = 1)) + geom_line() +
+                  group = 1, text = .data[[region_name]])) + geom_line() +
         labs(title = paste0("Average Days a Home is Listed on Zillow in ",
-                            str_to_title(region_name),
-                            ifelse(is.null(state_code), " State",
-                                   paste(" County,", toupper(state_code)))),
-             y = "Number of Days") +
-        scale_x_discrete(labels = season_labels) + geom_point() +
-        theme(axis.text.x = element_text(angle = 90)) +
+        str_to_title(region_name), ifelse(is.null(state_code), " State",
+        paste(" County,", toupper(state_code)))), y = "Number of Days") +
+        scale_x_discrete(labels = season_labels) + geom_point(size = 1) +
+        theme(axis.text.x = element_text(angle = 90, size = 6)) +
         geom_line(color = "blue")
     }
 
-    return(
-      line_graph(input$location_type, input$location_name, input$if_state)
-    )
+    line_plot <- ggplotly(line_graph(input$location_type, input$location_name,
+                            input$if_state), tooltip = "text")
+    return(line_plot)
   })
 
   output$conclusion1 <- renderPlotly({

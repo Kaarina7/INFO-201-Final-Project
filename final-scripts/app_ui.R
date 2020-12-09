@@ -76,7 +76,7 @@ line <- tabPanel(
                 its state code here:", value = "WA")
     ),
     mainPanel(
-      # show graph here
+      # show the graph and analysis here
       p("This line graph looks at the average number of days a house remains
       listed on Zillow by time, and it breaks the data down by region.
       It answers questions such as \"When did houses take the longest time to
@@ -84,7 +84,7 @@ line <- tabPanel(
       show. The default below is an example of King County, Washington.",
         style = "font-size:18px"
       ),
-      plotOutput("line_graph"),
+      plotlyOutput("line_graph"),
       p("The graphs clearly show that over the years, selling a house has
       become a quicker process. Even more pronounced in the difference in time
       it takes to sell a house by season. Depending on the location, houses
@@ -255,7 +255,7 @@ ui <- fluidPage(
     "Zillow Housing Information (2010 - 2017)"
   ),
   navbarPage(
-    title = "Navigation Bar",
+    title = "Analysis and Graphs:",
     overview_information,
     bar,
     map,

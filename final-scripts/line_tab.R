@@ -1,9 +1,8 @@
 # load necessary libraries
-library(shiny)
-library(ggplot2)
 library(dplyr)
 library(stringr)
 
+# load and clean data frames
 days_listed_state <-
   read.csv("project-data/days-on-zillow/daysonzillow_public_state.csv",
            stringsAsFactors = FALSE)
