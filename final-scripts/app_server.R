@@ -1,5 +1,6 @@
 library(shiny)
 library(plotly)
+library(DT)
 source("bar-chart-function.R")
 source("line_tab.R")
 source("map_tab.R")
@@ -97,8 +98,8 @@ server <- function(input, output) {
     return(ggplotly(price_change_plot, tooltip = "text"))
   })
 
-  output$conclusion2 <- renderTable({
-    top_10_cities <- aggregate_table(city_data)
+  output$conclusion2 <- renderDataTable({
+    top_10_cities <- datatable(aggregate_table(city_data))
     return(top_10_cities)
   })
 
@@ -115,12 +116,15 @@ server <- function(input, output) {
       summarise(
         Days = mean(Days, na.rm = TRUE)
       )
-    return(ggplot(days_listed_trend, aes(x = month, y = Days,
-                                         group = 1)) + geom_line() +
+    ggplotdays <- ggplot(days_listed_trend, aes(x = month, y = Days,
+                                         group = 1, text = Days)) + 
+             geom_line() +
              labs(title = "Average Days a Home is Listed on Zillow in the US") +
              geom_point() +
              theme(axis.text.x = element_text(angle = 90)) +
-             geom_line(color = "blue"))
+             geom_line(color = "blue")
+    return(ggplotly(ggplotdays))
   })
 
 }
+

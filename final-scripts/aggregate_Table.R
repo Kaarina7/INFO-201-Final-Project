@@ -34,6 +34,13 @@ aggregate_table <- function(data) {
     summarise(
       List.Price = mean(List.Price, na.rm = TRUE),
     ) %>%
+    mutate(
+      List.Price = format(round(List.Price, 2), big.mark = ",",
+                          scientific = FALSE)
+    ) %>%
     arrange(desc(List.Price)) %>%
-    top_n(10)
+    mutate(
+      List.Price = paste0("$", List.Price)
+    ) %>%
+    head(10)
 }
