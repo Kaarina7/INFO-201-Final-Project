@@ -5,7 +5,7 @@ source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
 
-
+## This is the first visualization which is a bar chart
 bar <- tabPanel(
   title = "Change in House Prices",
   h1(id = "OverviewSubHeader",
@@ -36,6 +36,7 @@ bar <- tabPanel(
   )
 )
 
+# Second visualization which is an interactive map
 map <- tabPanel(
   title = "House Prices vs. Time",
   h1(
@@ -60,6 +61,7 @@ map <- tabPanel(
   )
 )
 
+# Third visualization which is a line graph
 line <- tabPanel(
   title = "Days Listed Online",
   h1(
@@ -97,13 +99,14 @@ line <- tabPanel(
   )
 )
 
-
+# This is the summary section of the page
 overview_information <- tabPanel(
   title = "Overview",
   tags$body(
     id = "Body",
     tags$div(
       id = "OverviewSection1",
+      # Explain the domain
       tags$h3(
         id = "OverviewSubHeader",
         "Choice of Domain: "
@@ -115,6 +118,7 @@ overview_information <- tabPanel(
         intersected all of our major-related interests, so we chose to focus on
         it for our project."
       ),
+      # Explain the data sets we used
       tags$h3(
         id = "OverviewSubHeader",
         "Our Data sets: "
@@ -130,6 +134,7 @@ overview_information <- tabPanel(
         Zillow by region. This can be used to examine changes in the speed
         with which houses sell in different areas."
       ),
+      # Provide hyperlinks to the data sets
       tags$h3(
         id = "OverviewSubHeader",
         "Links to Data Sets: "
@@ -143,6 +148,7 @@ overview_information <- tabPanel(
         id = "links",
         href = "https://data.world/zillow-data/days-on-zillow", "Days on Zillow"
       ),
+      # Explain purpose of the project
       tags$h3(
         id = "OverviewSubHeader",
         "Purpose: "
@@ -157,6 +163,7 @@ overview_information <- tabPanel(
       on the market for the longest or the least can be discovered."
       )
     ),
+    # Describe what visualizations are being used
     tags$div(
       id = "OverviewSection2",
       tags$h3(
@@ -191,7 +198,7 @@ overview_information <- tabPanel(
   )
 )
 
-
+# This code is for the economic impact explanation in the conclusion
 change <- 299414 - 238738
 per_change <- round((((change) / 299414) * 100), 2)
 link <- tags$a(
@@ -199,12 +206,14 @@ link <- tags$a(
   "10%"
 )
 
+# Conclusions Tab
 conclusions <- tabPanel(
   title = "Conclusions",
   tags$h1(
     id = "OverviewSubHeader",
     "Conclusions From Our Data "
   ),
+  # Start with economic conclusions comparing income to median house price
   h2(
     id = "VisualSubHeader",
     "Economic Conclusions"
@@ -223,23 +232,29 @@ conclusions <- tabPanel(
               homes. ")),
   ),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
+  # Go into more general insights of the housing market 
   h2(
     id = "VisualSubHeader",
     "Hosuing Market Insights"
     ),
   div(
     id = "HighestCities",
+    # Show cities with the highest listing price
   h4(
     id = "conclusionSubheader",
     "Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The
     cities in the top 10 tend to be on the coasts or by the water in mostly
     sunny areas. The top 10 house prices all come from states in the top 5
-    for population size. This reveals an economic idea about how the scarcity
-    of houses (a fixed supply) with an increasing demand for these houses
-    increases the price of these homes."),
+    for population size."),
+  # Add additional economic conclusion. 
+  p("There is actually an economic idea to explain this. This is how scarcity
+    of houses in a good location (a fixed supply) with an increasing demand for 
+    these houses increases the price of these homes, as sellers can pick and 
+    choose who to sell to based on the highest bid."),
   dataTableOutput("conclusion2", width = "75%"),
   ),
+  # Show the days on Zillow for the USA as a whole
   h4( 
     id = "conclusionSubheader",
     "Days on Zillow for the USA as a whole"
@@ -257,8 +272,7 @@ conclusions <- tabPanel(
   )
 )
 
-
-
+# This is the main ui which links to the CSS document
 ui <- fluidPage(
   includeCSS("style.css"),
   tags$h1(

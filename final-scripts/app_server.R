@@ -1,5 +1,6 @@
 library(shiny)
 library(plotly)
+library(ggplot2)
 library(DT)
 source("bar-chart-function.R")
 source("line_tab.R")
@@ -79,8 +80,10 @@ server <- function(input, output) {
     return(line_plot)
   })
 
+# This is the bar graph of the house price change from 2011 to 2017
   output$conclusion1 <- renderPlotly({
     source("aggregate_Table.R")
+    # New data frame that only has the 2011 and 2017 data
     change_in_price <- city_data %>%
       select(X2010.01, X2017.09) %>%
       drop_na() %>%
@@ -89,7 +92,7 @@ server <- function(input, output) {
         Sep.2017 = mean(X2017.09)
       ) %>%
       gather(key = "Year", value = "List.Price")
-    ##
+    # Plotting the graph
     price_change_plot <- ggplot(change_in_price) +
       geom_bar(mapping = aes(x = Year, y = List.Price,
                               text = paste0("Price = $",
@@ -98,12 +101,15 @@ server <- function(input, output) {
     return(ggplotly(price_change_plot, tooltip = "text"))
   })
 
+# Creating a data table of the cities with the highest median house prices
   output$conclusion2 <- renderDataTable({
     top_10_cities <- datatable(aggregate_table(city_data))
     return(top_10_cities)
   })
 
+# Creating a line graph of average days on Zillow for entire USA
   output$conclusion3 <- renderPlot({
+    # Making the average data frame
     days_listed_trend <- days_listed_state %>%
       select(matches("201|RegionName")) %>%
       # Using Gather to Make Month Column have old column values as rows
@@ -116,8 +122,9 @@ server <- function(input, output) {
       summarise(
         Days = mean(Days, na.rm = TRUE)
       )
+    # Plotting the data frame
     ggplotdays <- ggplot(days_listed_trend, aes(x = month, y = Days,
-                                         group = 1, text = Days)) + 
+                                         group = 1, text = Days)) +
              geom_line() +
              labs(title = "Average Days a Home is Listed on Zillow in the US") +
              geom_point() +
@@ -127,4 +134,3 @@ server <- function(input, output) {
   })
 
 }
-
