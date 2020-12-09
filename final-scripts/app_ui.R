@@ -259,6 +259,7 @@ conclusions <- tabPanel(
     id = "conclusionSubheader",
     "Days on Zillow for the USA as a whole"
     ),
+  plotlyOutput("conclusion3"),
   p("The above graph shows the average days on zillow for every month from
     January 2010 to August 2017."),
   tags$ul(
@@ -267,12 +268,13 @@ conclusions <- tabPanel(
     of either increased popularity of Zillow to sell a house or increase in
     houses bought.")),
     tags$li(p("The line also shows a dip in each year around the summer months 
-    showing that new houses are bought quicker in the summer.")),
-  plotOutput("conclusion3")
+    showing that new houses are bought quicker in the summer."))
+  
   )
 )
 
-# This is the main ui which links to the CSS document
+# This is the main ui which links to the CSS
+
 ui <- fluidPage(
   includeCSS("style.css"),
   tags$h1(

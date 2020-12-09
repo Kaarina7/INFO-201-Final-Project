@@ -108,7 +108,7 @@ server <- function(input, output) {
   })
 
 # Creating a line graph of average days on Zillow for entire USA
-  output$conclusion3 <- renderPlot({
+  output$conclusion3 <- renderPlotly({
     # Making the average data frame
     days_listed_trend <- days_listed_state %>%
       select(matches("201|RegionName")) %>%
@@ -123,14 +123,13 @@ server <- function(input, output) {
         Days = mean(Days, na.rm = TRUE)
       )
     # Plotting the data frame
-    ggplotdays <- ggplot(days_listed_trend, aes(x = month, y = Days,
-                                         group = 1, text = Days)) +
+    ggplotdays <- ggplotly(ggplot(days_listed_trend, aes(x = month, y = Days,
+                                         group = 1)) +
              geom_line() +
              labs(title = "Average Days a Home is Listed on Zillow in the US") +
              geom_point() +
              theme(axis.text.x = element_text(angle = 90)) +
-             geom_line(color = "blue")
-    return(ggplotly(ggplotdays))
+             geom_line(color = "navyblue"))
   })
 
 }
