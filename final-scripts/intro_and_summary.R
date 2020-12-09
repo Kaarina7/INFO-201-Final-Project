@@ -220,4 +220,3 @@ server <- function(input, output) {
   })
 }
 a <- table(aggregate_table(city_data))
-         

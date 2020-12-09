@@ -219,20 +219,20 @@ conclusions <- tabPanel(
     "Economic Conclusions"
     ),
   tags$ul(
-    tags$li(p(paste0("The median housing price in 2017 was $299414 and at its 
+    tags$li(p(paste0("The median housing price in 2017 was $299414 and at its
     lowest year, 2011, was $238738. The price increases by $", change,
                    " which is an increase of ", per_change, "%"))),
     tags$li(p("In the same time that the hosuing price has increased by ",
             per_change, "the % increase in household income has risen by,",
             link, "*(Click for source)")),
-    tags$li(p("Houses are usualy sold around 3% less than the listing price on 
-    average. While the amount of listings on Zillow is not every house listed 
-    on the market, the general trend holds that prices of houses are increasing 
-    at a greater rate than income posing a problem for Americans to pay for 
+    tags$li(p("Houses are usualy sold around 3% less than the listing price on
+    average. While the amount of listings on Zillow is not every house listed
+    on the market, the general trend holds that prices of houses are increasing
+    at a greater rate than income posing a problem for Americans to pay for
               homes. ")),
   ),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
-  # Go into more general insights of the housing market 
+  # Go into more general insights of the housing market
   h2(
     id = "VisualSubHeader",
     "Hosuing Market Insights"
@@ -247,15 +247,15 @@ conclusions <- tabPanel(
     cities in the top 10 tend to be on the coasts or by the water in mostly
     sunny areas. The top 10 house prices all come from states in the top 5
     for population size."),
-  # Add additional economic conclusion. 
+  # Add additional economic conclusion.
   p("There is actually an economic idea to explain this. This is how scarcity
-    of houses in a good location (a fixed supply) with an increasing demand for 
-    these houses increases the price of these homes, as sellers can pick and 
+    of houses in a good location (a fixed supply) with an increasing demand for
+    these houses increases the price of these homes, as sellers can pick and
     choose who to sell to based on the highest bid."),
   dataTableOutput("conclusion2", width = "75%"),
   ),
   # Show the days on Zillow for the USA as a whole
-  h4( 
+  h4(
     id = "conclusionSubheader",
     "Days on Zillow for the USA as a whole"
     ),
@@ -267,9 +267,9 @@ conclusions <- tabPanel(
     is on Zillow has significantly decreased, 150 to around 80. This is a result
     of either increased popularity of Zillow to sell a house or increase in
     houses bought.")),
-    tags$li(p("The line also shows a dip in each year around the summer months 
+    tags$li(p("The line also shows a dip in each year around the summer months
     showing that new houses are bought quicker in the summer."))
-  
+
   )
 )
 
