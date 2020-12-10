@@ -5,7 +5,7 @@ source("line_tab.R")
 source("map_tab.R")
 source("intro_and_summary.R")
 
-
+## This is the first visualization which is a bar chart
 bar <- tabPanel(
   title = "Change in House Prices",
   h1(id = "OverviewSubHeader",
@@ -36,6 +36,7 @@ bar <- tabPanel(
   )
 )
 
+# Second visualization which is an interactive map
 map <- tabPanel(
   title = "House Prices vs. Time",
   h1(
@@ -60,6 +61,7 @@ map <- tabPanel(
   )
 )
 
+# Third visualization which is a line graph
 line <- tabPanel(
   title = "Days Listed Online",
   h1(
@@ -96,14 +98,15 @@ line <- tabPanel(
     )
   )
 )
-
-
+# This is the summary section of the page
 overview_information <- tabPanel(
   title = "Overview",
   tags$body(
     id = "Body",
     tags$div(
       id = "OverviewSection1",
+      img(src = "www/zillow.png", alt = "Zillow Logo"),
+      # Explain the domain
       tags$h3(
         id = "OverviewSubHeader",
         "Choice of Domain: "
@@ -115,6 +118,7 @@ overview_information <- tabPanel(
         intersected all of our major-related interests, so we chose to focus on
         it for our project."
       ),
+      # Explain the data sets we used
       tags$h3(
         id = "OverviewSubHeader",
         "Our Data sets: "
@@ -130,6 +134,7 @@ overview_information <- tabPanel(
         Zillow by region. This can be used to examine changes in the speed
         with which houses sell in different areas."
       ),
+      # Provide hyperlinks to the data sets
       tags$h3(
         id = "OverviewSubHeader",
         "Links to Data Sets: "
@@ -143,6 +148,7 @@ overview_information <- tabPanel(
         id = "links",
         href = "https://data.world/zillow-data/days-on-zillow", "Days on Zillow"
       ),
+      # Explain purpose of the project
       tags$h3(
         id = "OverviewSubHeader",
         "Purpose: "
@@ -157,6 +163,7 @@ overview_information <- tabPanel(
       on the market for the longest or the least can be discovered."
       )
     ),
+    # Describe what visualizations are being used
     tags$div(
       id = "OverviewSection2",
       tags$h3(
@@ -191,7 +198,7 @@ overview_information <- tabPanel(
   )
 )
 
-
+# This code is for the economic impact explanation in the conclusion
 change <- 299414 - 238738
 per_change <- round((((change) / 299414) * 100), 2)
 link <- tags$a(
@@ -199,51 +206,60 @@ link <- tags$a(
   "10%"
 )
 
+# Conclusions Tab
 conclusions <- tabPanel(
   title = "Conclusions",
   tags$h1(
     id = "OverviewSubHeader",
     "Conclusions From Our Data "
   ),
+  # Start with economic conclusions comparing income to median house price
   h2(
     id = "VisualSubHeader",
     "Economic Conclusions"
     ),
   tags$ul(
-    tags$li(p(paste0("The median housing price in 2017 was $299414 and at its 
+    tags$li(p(paste0("The median housing price in 2017 was $299414 and at its
     lowest year, 2011, was $238738. The price increases by $", change,
                    " which is an increase of ", per_change, "%"))),
     tags$li(p("In the same time that the hosuing price has increased by ",
             per_change, "the % increase in household income has risen by,",
             link, "*(Click for source)")),
-    tags$li(p("Houses are usualy sold around 3% less than the listing price on 
-    average. While the amount of listings on Zillow is not every house listed 
-    on the market, the general trend holds that prices of houses are increasing 
-    at a greater rate than income posing a problem for Americans to pay for 
+    tags$li(p("Houses are usualy sold around 3% less than the listing price on
+    average. While the amount of listings on Zillow is not every house listed
+    on the market, the general trend holds that prices of houses are increasing
+    at a greater rate than income posing a problem for Americans to pay for
               homes. ")),
   ),
   plotlyOutput(outputId = "conclusion1", width = "75%"),
+  # Go into more general insights of the housing market
   h2(
     id = "VisualSubHeader",
-    "Hosuing Market Insights"
+    "Housing Market Insights"
     ),
   div(
     id = "HighestCities",
+    # Show cities with the highest listing price
   h4(
     id = "conclusionSubheader",
     "Cities with Highest List Price"),
   p("The table shows that the cities with the highest median house prices. The
     cities in the top 10 tend to be on the coasts or by the water in mostly
     sunny areas. The top 10 house prices all come from states in the top 5
-    for population size. This reveals an economic idea about how the scarcity
-    of houses (a fixed supply) with an increasing demand for these houses
-    increases the price of these homes."),
+    for population size."),
+  # Add additional economic conclusion.
+  p("There is actually an economic idea to explain this. This is how scarcity
+    of houses in a good location (a fixed supply) with an increasing demand for
+    these houses increases the price of these homes, as sellers can pick and
+    choose who to sell to based on the highest bid."),
   dataTableOutput("conclusion2", width = "75%"),
   ),
-  h4( 
+  # Show the days on Zillow for the USA as a whole
+  h4(
     id = "conclusionSubheader",
     "Days on Zillow for the USA as a whole"
     ),
+  plotlyOutput("conclusion3"),
   p("The above graph shows the average days on zillow for every month from
     January 2010 to August 2017."),
   tags$ul(
@@ -251,13 +267,13 @@ conclusions <- tabPanel(
     is on Zillow has significantly decreased, 150 to around 80. This is a result
     of either increased popularity of Zillow to sell a house or increase in
     houses bought.")),
-    tags$li(p("The line also shows a dip in each year around the summer months 
-    showing that new houses are bought quicker in the summer.")),
-  plotOutput("conclusion3")
+    tags$li(p("The line also shows a dip in each year around the summer months
+    showing that new houses are bought quicker in the summer."))
+
   )
 )
 
-
+# This is the main ui which links to the CSS
 
 ui <- fluidPage(
   includeCSS("style.css"),

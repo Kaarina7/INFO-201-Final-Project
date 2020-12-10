@@ -219,5 +219,3 @@ server <- function(input, output) {
       geom_line(color = "blue"))
   })
 }
-a <- table(aggregate_table(city_data))
-         
