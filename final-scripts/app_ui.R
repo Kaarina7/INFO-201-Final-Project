@@ -105,7 +105,7 @@ overview_information <- tabPanel(
     id = "Body",
     tags$div(
       id = "OverviewSection1",
-      img(src = "www.zillow.png"),
+      img(src = "www/zillow.png", alt = "Zillow Logo"),
       # Explain the domain
       tags$h3(
         id = "OverviewSubHeader",
@@ -235,7 +235,7 @@ conclusions <- tabPanel(
   # Go into more general insights of the housing market
   h2(
     id = "VisualSubHeader",
-    "Hosuing Market Insights"
+    "Housing Market Insights"
     ),
   div(
     id = "HighestCities",
