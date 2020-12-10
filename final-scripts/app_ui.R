@@ -105,7 +105,8 @@ overview_information <- tabPanel(
     id = "Body",
     tags$div(
       id = "OverviewSection1",
-      img(src = "www/zillow.png", alt = "Zillow Logo"),
+      img(src = "zillow.png", height = "75px", width = "300px",
+          alt = "Zillow Logo"),
       # Explain the domain
       tags$h3(
         id = "OverviewSubHeader",
